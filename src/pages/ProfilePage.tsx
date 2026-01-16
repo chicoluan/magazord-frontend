@@ -1,6 +1,9 @@
 import { githubApi } from '@/api/github'
+import CardUser from '@/components/CardUser'
 import type { UserProps } from '@/types/user'
 import { useEffect, useState, type JSX } from 'react'
+
+// gabrielcordeiro-dev
 
 export default function ProfilePage(): JSX.Element {
   const [user, setUser] = useState<UserProps | null>()
@@ -8,7 +11,7 @@ export default function ProfilePage(): JSX.Element {
   useEffect(() => {
     const fetchUserData = async () => {
       const response = await githubApi
-        .get<UserProps>('users/gabrielcordeiro-dev')
+        .get<UserProps>('users/gabrielscordeiro')
         .then((res) => res.data)
 
       setUser(response)
@@ -17,5 +20,16 @@ export default function ProfilePage(): JSX.Element {
   }, [])
 
   console.log(user)
-  return <div className="grid grid-cols-4 md:grid-cols-6 lg:flex"></div>
+  return (
+    <div className='col-span-4'>
+      <div className='flex justify-center'>
+        <CardUser
+          avatar_url={user?.avatar_url}
+          name={user?.name}
+          bio={user?.bio}
+          company={user?.company}
+        />
+      </div>
+    </div>
+  )
 }
