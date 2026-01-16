@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react'
-import type { UserProps } from './types/user'
-import { githubApi } from './config/api'
+import { githubApi } from '@/api/github'
+import type { UserProps } from '@/types/user'
+import { useEffect, useState, type JSX } from 'react'
 
-export default function App() {
+export default function ProfilePage(): JSX.Element {
   const [user, setUser] = useState<UserProps | null>()
 
   useEffect(() => {
@@ -17,6 +17,5 @@ export default function App() {
   }, [])
 
   console.log(user)
-
-  return <h1>Magazord Frontend Github</h1>
+  return <div className="grid grid-cols-4 md:grid-cols-6 lg:flex"></div>
 }
