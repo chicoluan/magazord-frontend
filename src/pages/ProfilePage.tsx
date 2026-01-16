@@ -28,6 +28,7 @@ export default function ProfilePage(): JSX.Element {
           name={user?.name}
           bio={user?.bio}
           company={user?.company}
+          location={user?.location}
         />
       </div>
     </div>

@@ -8,13 +8,16 @@ import {
   AccordionTrigger,
 } from './ui/accordion'
 import { Card, CardContent, CardFooter, CardHeader } from './ui/card'
-import { Heart, LocationEdit, Pin } from 'lucide-react'
+import { Link, MapPin } from 'lucide-react'
+import { Instagram, Organization } from './ui/icons'
 
 type CardUserProps = {
   avatar_url?: string
   name?: string | null
   bio?: string | null
   company?: string | null
+  location?: string | null
+  blog?: string | null
 }
 
 export default function CardUser({
@@ -22,6 +25,8 @@ export default function CardUser({
   name,
   bio,
   company,
+  location,
+  blog,
 }: CardUserProps): JSX.Element {
   return (
     <Card className='border-none shadow-none w- gap-4'>
@@ -48,19 +53,19 @@ export default function CardUser({
             <AccordionContent>
               <div className='flex flex-col'>
                 <div className='flex gap-2.5 items-center'>
-                  <Heart className='size-4' />
-                  <p>Magazord - plataforma</p>
+                  <Organization className='size-4' />
+                  <p>{company}</p>
                 </div>
                 <div className='flex gap-2.5 items-center'>
-                  <LocationEdit className='size-4' />
-                  <p>Rio do Sul - SC</p>
+                  <MapPin className='size-4' />
+                  <p>{location}</p>
                 </div>
                 <div className='flex gap-2.5 items-center'>
-                  <Heart className='size-4' />
-                  <p>Cordas.hub.uok</p>
+                  <Link className='size-4' />
+                  <p>{blog}</p>
                 </div>
                 <div className='flex gap-2.5 items-center'>
-                  <Heart className='size-4' />
+                  <Instagram className='size-4' />
                   <p>Gabriel.s.cordeiro</p>
                 </div>
               </div>

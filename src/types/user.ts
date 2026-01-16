@@ -6,4 +6,6 @@ export type UserProps = {
   name: string | null
   bio: string | null
   company: string | null
+  location: string | null
+  blog: string | null
 }
