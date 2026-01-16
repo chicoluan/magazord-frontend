@@ -1,5 +1,6 @@
 import { githubApi } from '@/api/github'
 import CardUser from '@/components/card-user/CardUser'
+import TabsMenu from '@/components/tabs-menu/TabsMenu'
 import type { UserProps } from '@/types/user'
 import { useEffect, useState, type JSX } from 'react'
 
@@ -30,6 +31,7 @@ export default function ProfilePage(): JSX.Element {
           company={user?.company}
           location={user?.location}
         />
+        <TabsMenu />
       </div>
     </div>
   )
