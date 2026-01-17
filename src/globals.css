@@ -126,4 +126,17 @@
 }
 
 @layer utilities {
+  @keyframes fill {
+    0% {
+      background-position: 200% 0;
+    }
+
+    100% {
+      background-position: -200% 0;
+    }
+  }
+
+  .animate-fill {
+    animation: fill 1.5s linear infinite
+  }
 }

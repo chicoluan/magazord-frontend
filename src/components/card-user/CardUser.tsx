@@ -23,7 +23,7 @@ export default function CardUser({
   blog,
 }: CardUserProps): JSX.Element {
   return (
-    <Card className='border-none shadow-none w-3xs gap-4'>
+    <Card className='border-none shadow-none w-3xs gap-4 py-0'>
       <CardHeader className='flex flex-col justify-center items-center'>
         <div className='relative'>
           <Avatar className='h-28 w-28'>

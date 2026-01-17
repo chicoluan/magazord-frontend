@@ -13,23 +13,22 @@ export default function HomePage(): JSX.Element {
   const handleSearch = () => {
     if (!inputUsername) return
     setUsername(inputUsername)
-    navigate('/profile')
+    navigate('/profile/repositories')
   }
 
   return (
-    <div className='col-span-4 md:col-span-6 lg:flex items-center w-full justify-center'>
-      <div className='flex flex-col h-full w-full items-center justify-center gap-6 '>
-        <div className='flex items-center justify-center text-primary gap-3'>
-          <Github className='w-10 h-10' />
-          <Brand className='h-10 w-auto' />
-        </div>
-
-        <SearchInput
-          onChange={(e) => setInputUsername(e.target.value)}
-          value={inputUsername}
-          onSeach={handleSearch}
-        />
+    <div className='flex flex-col flex-1 w-full items-center justify-center gap-6 '>
+      {/* Github Logo and Brand */}
+      <div className='flex items-center justify-center text-primary gap-3'>
+        <Github className='w-10 h-10' />
+        <Brand className='h-10 w-auto' />
       </div>
+
+      <SearchInput
+        onChange={(e) => setInputUsername(e.target.value)}
+        value={inputUsername}
+        onSeach={handleSearch}
+      />
     </div>
   )
 }

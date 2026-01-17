@@ -1,4 +1,6 @@
 import CardUser from '@/components/card-user/CardUser'
+import NavMenu from '@/components/NavMenu'
+import SearchInput from '@/components/search-input/SearchInput'
 import { useUsername } from '@/hooks/useUser'
 import { useUserStore } from '@/store/useUserStore'
 import type { JSX } from 'react'
@@ -19,6 +21,10 @@ export default function ProfilePage(): JSX.Element {
           company={user?.company}
           location={user?.location}
         />
+        <div className='flex flex-col w-full items-center justify-center md:justify-start'>
+          <NavMenu />
+          <SearchInput placeholder='Search repository' onSeach={() => {}} />
+        </div>
       </div>
     </div>
   )

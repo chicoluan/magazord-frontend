@@ -1,3 +1,4 @@
+import ProfileLayout from '@/layouts/ProfileLayout'
 import RootLayout from '@/layouts/RootLayout'
 import HomePage from '@/pages/HomePage'
 import ProfilePage from '@/pages/ProfilePage'
@@ -14,7 +15,17 @@ export const router = createBrowserRouter([
       },
       {
         path: '/profile',
-        element: <ProfilePage />,
+        element: <ProfileLayout />,
+        children: [
+          {
+            path: '/profile/repositories',
+            element: <ProfilePage />,
+          },
+          {
+            path: '/profile/starred',
+            element: <ProfilePage />,
+          },
+        ],
       },
     ],
   },
