@@ -16,9 +16,14 @@
 - [x] Crete a new branch to start feature/github-api
 - [x] Create the api instance with axios and test
 - [x] Start creating the routes and update the name of the css file for an idiomatic structure
-- [x] Create the type of the user
+- [x] Create the starter type of the user
 - [x] Start creating the profile page and the components of them
 - [x] Authenticate the api to check if social accounts is included in the data
+- [x] Finish the fetch valid username and redirect to profile page (choose between useNavigation, link of form), the best scenario is useNavigation
+  - Link does not pick the "Enter"
+  - Form does not know about zustand and to save the username
+  - useNavigation is the best option to navigate after zustand
+- [x] Separate the providers into a distinct directory for scalability
 
 ## MISSING / QUICK REMINDS
 

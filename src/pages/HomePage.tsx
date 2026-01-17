@@ -1,27 +1,29 @@
 import { Brand } from '@/components/ui/brand'
 import { Github } from '@/components/ui/icons'
+import { useState, type JSX } from 'react'
+import type React from 'react'
+import { SearchIcon } from 'lucide-react'
+import { useUserStore } from '@/store/useUserStore'
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupButton,
   InputGroupInput,
 } from '@/components/ui/input-group'
-import { useUserStore } from '@/store/useUserStore'
-import { SearchIcon } from 'lucide-react'
-import type React from 'react'
-import type { JSX } from 'react'
+import { Link, useNavigate } from 'react-router'
 
 export default function HomePage(): JSX.Element {
-  const username = useUserStore((state) => state.username)
+  const navigate = useNavigate()
+  const [inputUsername, setInputValue] = useState('')
   const setUsername = useUserStore((state) => state.setUsername)
 
   const handleSearch = () => {
-    if (!username) return
-    setUsername(username)
+    if (!inputUsername) return
+    setUsername(inputUsername)
+    navigate('/profile')
   }
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    console.log(e.key)
     if (e.key === 'Enter') handleSearch()
   }
 
@@ -34,24 +36,26 @@ export default function HomePage(): JSX.Element {
         </div>
 
         <InputGroup
-          onKeyDown={handleKeyDown}
           className='max-w-sm border-primary'
+          onKeyDown={handleKeyDown}
         >
           <InputGroupInput
-            onChange={(e) => setUsername(e.target.value)}
-            value={username}
+            value={inputUsername}
             placeholder='Search username'
+            onChange={(e) => setInputValue(e.target.value)}
           />
           <InputGroupAddon>
             <SearchIcon />
           </InputGroupAddon>
           <InputGroupAddon align='inline-end'>
-            <InputGroupButton
-              onClick={handleSearch}
-              className='hover:cursor-pointer'
-            >
-              Search
-            </InputGroupButton>
+            <Link to='/profile'>
+              <InputGroupButton
+                onClick={handleSearch}
+                className='hover:cursor-pointer'
+              >
+                Search
+              </InputGroupButton>
+            </Link>
           </InputGroupAddon>
         </InputGroup>
       </div>

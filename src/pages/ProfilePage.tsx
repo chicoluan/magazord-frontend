@@ -1,10 +1,15 @@
 import CardUser from '@/components/card-user/CardUser'
 import TabsMenu from '@/components/tabs-menu/TabsMenu'
-import type { User } from '@/types/user'
-import { useState, type JSX } from 'react'
+import { useUsername } from '@/hooks/useUser'
+import { useUserStore } from '@/store/useUserStore'
+import type { JSX } from 'react'
 
 export default function ProfilePage(): JSX.Element {
-  const [user, setUser] = useState<User | null>()
+  const username = useUserStore((state) => state.username)
+  const { data: user } = useUsername(username)
+
+  console.log('username: ', username)
+  console.log('user: ', user)
   return (
     <div className='col-span-4 w-full flex flex-1'>
       <div className='flex flex-col w-full md:flex-row items-center md:items-start justify-center'>
