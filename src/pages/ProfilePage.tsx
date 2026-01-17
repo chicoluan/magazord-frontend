@@ -23,7 +23,7 @@ export default function ProfilePage(): JSX.Element {
   console.log(user)
   return (
     <div className='col-span-4 w-full flex flex-1'>
-      <div className='flex flex-col md:flex-row items-center justify-center'>
+      <div className='flex flex-col w-full md:flex-row items-center md:items-start justify-center'>
         <CardUser
           avatar_url={user?.avatar_url}
           name={user?.name}
@@ -31,7 +31,7 @@ export default function ProfilePage(): JSX.Element {
           company={user?.company}
           location={user?.location}
         />
-        <div className='flex flex-1 flex-col w-full pt-8'>
+        <div className='flex flex-1 flex-col pt-8'>
           <TabsMenu />
         </div>
       </div>
