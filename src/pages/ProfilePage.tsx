@@ -1,26 +1,10 @@
-import { githubApi } from '@/api/github'
 import CardUser from '@/components/card-user/CardUser'
 import TabsMenu from '@/components/tabs-menu/TabsMenu'
-import type { UserProps } from '@/types/user'
-import { useEffect, useState, type JSX } from 'react'
-
-// gabrielcordeiro-dev
+import type { User } from '@/types/user'
+import { useState, type JSX } from 'react'
 
 export default function ProfilePage(): JSX.Element {
-  const [user, setUser] = useState<UserProps | null>()
-
-  useEffect(() => {
-    const fetchUserData = async () => {
-      const response = await githubApi
-        .get<UserProps>('users/engluanoliv')
-        .then((res) => res.data)
-
-      setUser(response)
-    }
-    fetchUserData()
-  }, [])
-
-  console.log(user)
+  const [user, setUser] = useState<User | null>()
   return (
     <div className='col-span-4 w-full flex flex-1'>
       <div className='flex flex-col w-full md:flex-row items-center md:items-start justify-center'>
