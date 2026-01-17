@@ -16,14 +16,20 @@ I also export this note from iPadOS as a Markdown file. Keep in mind that the Ma
 - [x] Start creating the routes and update the name of the css file for an idiomatic structure
 - [x] Create the type of the user
 - [x] Start creating the profile page and the components of them
-- [x] Authenticate the api to check if social accounts is included in the data
 
 ## MISSING - (DO NOT FORGET):
 
+- [x] Authenticate the api to check if social accounts is included in the data
 - [ ] Add the endpoint '/social_accounts' to fetch the social accounts
 - [ ] Refactor page files - maybe tchange their name to page.tsx
 - [ ] Replace type of User with Interface
 - [ ] Chevron down icon for accordion also blue
 - [ ] Add social accounts for users in addional data component
+
+## WORKFLOW ROADMAP
+
+1. TYPE THE USERNAME IN HOME PAGE
+2. STORE THE DATA WITH ZUSTAND
+3. REDIRECT TO PROFILE PAGE WHERE USE THE ZUSTAND STORE TO FETCH DATA WITH REACT QUERY
 
 <!-- ![Attachments](public/Attachments/DFFF50A8-92D2-48F7-8325-5933568BC987.png) -->
