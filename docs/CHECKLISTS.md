@@ -16,10 +16,11 @@ I also export this note from iPadOS as a Markdown file. Keep in mind that the Ma
 - [x] Start creating the routes and update the name of the css file for an idiomatic structure
 - [x] Create the type of the user
 - [x] Start creating the profile page and the components of them
+- [x] Authenticate the api to check if social accounts is included in the data
 
 ## MISSING - (DO NOT FORGET):
 
-- [ ] Authenticate the api to check if social accounts is included in the data
+- [ ] Add the endpoint '/social_accounts' to fetch the social accounts
 - [ ] Refactor page files - maybe tchange their name to page.tsx
 - [ ] Replace type of User with Interface
 - [ ] Chevron down icon for accordion also blue

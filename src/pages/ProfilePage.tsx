@@ -12,7 +12,7 @@ export default function ProfilePage(): JSX.Element {
   useEffect(() => {
     const fetchUserData = async () => {
       const response = await githubApi
-        .get<UserProps>('users/gabrielscordeiro')
+        .get<UserProps>('users/engluanoliv')
         .then((res) => res.data)
 
       setUser(response)
