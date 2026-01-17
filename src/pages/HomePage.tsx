@@ -6,12 +6,23 @@ import {
   InputGroupButton,
   InputGroupInput,
 } from '@/components/ui/input-group'
+import { useUserStore } from '@/store/useUserStore'
 import { SearchIcon } from 'lucide-react'
+import type React from 'react'
 import type { JSX } from 'react'
 
 export default function HomePage(): JSX.Element {
+  const username = useUserStore((state) => state.username)
+  const setUsername = useUserStore((state) => state.setUsername)
+
   const handleSearch = () => {
-    console.log('clicked')
+    if (!username) return
+    setUsername(username)
+  }
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    console.log(e.key)
+    if (e.key === 'Enter') handleSearch()
   }
 
   return (
@@ -21,11 +32,16 @@ export default function HomePage(): JSX.Element {
           <Github className='w-10 h-10' />
           <Brand className='h-10 w-auto' />
         </div>
+
         <InputGroup
-          onKeyDown={handleSearch}
+          onKeyDown={handleKeyDown}
           className='max-w-sm border-primary'
         >
-          <InputGroupInput placeholder='Search username' />
+          <InputGroupInput
+            onChange={(e) => setUsername(e.target.value)}
+            value={username}
+            placeholder='Search username'
+          />
           <InputGroupAddon>
             <SearchIcon />
           </InputGroupAddon>

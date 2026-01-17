@@ -1,7 +1,13 @@
 # Magazord Frontend
 
-This document serves as a personal checklist to keep track of important tasks so I don’t forget anything. I’ll be updating it only after a few commits, as it’s easier for me to manage it as notes.
-I also export this note from iPadOS as a Markdown file. Keep in mind that the Markdown export only includes the images from the notes as PNGs, which will appear below.
+1. This document serves as a personal checklist to keep track of important tasks so I don’t forget anything.
+2. I’ll be updating it only after a few commits, as it’s easier for me to manage it as notes.
+3. I also export this note from iPadOS as a Markdown file. Keep in mind that the Markdown export only includes the images from the notes as PNGs, which will appear below.
+4. Initially I was thinking to use only notes but now this is gonna be the draft of my official documentation.
+
+## STATER THINKING AND STARTER ANOTATIONS
+
+> Started taking notes not here but in the iPad. [Attachment Here](public/Attachments/DFFF50A8-92D2-48F7-8325-5933568BC987.png)
 
 - [x] Initial commit with README default
 - [x] Create develop branch
@@ -18,14 +24,16 @@ I also export this note from iPadOS as a Markdown file. Keep in mind that the Ma
 
 ## MISSING - (DO NOT FORGET):
 
+> Some notes to not forgot to do.
+
 - [x] Authenticate the api to check if social accounts is included in the data
 - [ ] Add the endpoint '/social_accounts' to fetch the social accounts
 - [ ] Chevron down icon for accordion also blue
 - [ ] Add social accounts for users in addional data component
 
-## (NEED TO REVIEW IF ITS A GOOD CHOICE) - It will take time and maybe its already. its not bunch of pages.
+## REVIEW / REFINE
 
-I am already a little bit late with this challenge because I spent most of the time trying to master it. There is a section dedicated to talk more about it.
+> It will take time and maybe its already. its not bunch of pages. I am already a little bit late with this challenge because I spent most of the time trying to master it. There is a section dedicated to talk more about it.
 
 - [ ] Refactor page files - maybe tchange their name to page.tsx
 - [ ] Replace type of User with Interface
@@ -36,8 +44,10 @@ I am already a little bit late with this challenge because I spent most of the t
 2. STORE THE DATA WITH ZUSTAND
 3. REDIRECT TO PROFILE PAGE WHERE USE THE ZUSTAND STORE TO FETCH DATA WITH REACT QUERY
 
-### ERROR
+## ANOTATIONS
+
+1. In HomePage I use the global state directly in the input instead of local.
+
+### ERRORS
 
 Installed the wrong dependency, instead of vite installed @tanstack/vue-query, my mistake, sorry. I saw only the "V" and pick that one. Only saw when started to create the hook to fetch the userData.
-
-<!-- ![Attachments](public/Attachments/DFFF50A8-92D2-48F7-8325-5933568BC987.png) -->
