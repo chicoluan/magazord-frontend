@@ -1,30 +1,19 @@
 import { Brand } from '@/components/ui/brand'
 import { Github } from '@/components/ui/icons'
 import { useState, type JSX } from 'react'
-import type React from 'react'
-import { SearchIcon } from 'lucide-react'
 import { useUserStore } from '@/store/useUserStore'
-import {
-  InputGroup,
-  InputGroupAddon,
-  InputGroupButton,
-  InputGroupInput,
-} from '@/components/ui/input-group'
-import { Link, useNavigate } from 'react-router'
+import { useNavigate } from 'react-router'
+import SearchInput from '@/components/search-input/SearchInput'
 
 export default function HomePage(): JSX.Element {
   const navigate = useNavigate()
-  const [inputUsername, setInputValue] = useState('')
+  const [inputUsername, setInputUsername] = useState('')
   const setUsername = useUserStore((state) => state.setUsername)
 
   const handleSearch = () => {
     if (!inputUsername) return
     setUsername(inputUsername)
     navigate('/profile')
-  }
-
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter') handleSearch()
   }
 
   return (
@@ -35,29 +24,11 @@ export default function HomePage(): JSX.Element {
           <Brand className='h-10 w-auto' />
         </div>
 
-        <InputGroup
-          className='max-w-sm border-primary'
-          onKeyDown={handleKeyDown}
-        >
-          <InputGroupInput
-            value={inputUsername}
-            placeholder='Search username'
-            onChange={(e) => setInputValue(e.target.value)}
-          />
-          <InputGroupAddon>
-            <SearchIcon />
-          </InputGroupAddon>
-          <InputGroupAddon align='inline-end'>
-            <Link to='/profile'>
-              <InputGroupButton
-                onClick={handleSearch}
-                className='hover:cursor-pointer'
-              >
-                Search
-              </InputGroupButton>
-            </Link>
-          </InputGroupAddon>
-        </InputGroup>
+        <SearchInput
+          onChange={(e) => setInputUsername(e.target.value)}
+          value={inputUsername}
+          onSeach={handleSearch}
+        />
       </div>
     </div>
   )

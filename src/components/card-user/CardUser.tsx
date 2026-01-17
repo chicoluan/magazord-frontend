@@ -1,8 +1,9 @@
 import type { JSX } from 'react'
-import { Avatar, AvatarImage } from '../ui/avatar'
+import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar'
 import { Badge } from '../ui/badge'
 import { Card, CardContent, CardFooter, CardHeader } from '../ui/card'
 import CardUserAdditionalData from './CardUserAdditionalData'
+import { Skeleton } from '../ui/skeleton'
 
 type CardUserProps = {
   avatar_url?: string
@@ -27,6 +28,9 @@ export default function CardUser({
         <div className='relative'>
           <Avatar className='h-28 w-28'>
             <AvatarImage src={avatar_url} />
+            <AvatarFallback>
+              <Skeleton className='h-28 w-28 rounded-full' />
+            </AvatarFallback>
           </Avatar>
           <Badge variant='secondary' className='absolute right-0 bottom-0 p-2'>
             😎

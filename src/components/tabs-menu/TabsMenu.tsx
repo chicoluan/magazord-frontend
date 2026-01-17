@@ -1,8 +1,7 @@
 import type { JSX } from 'react'
 import { Tabs, TabsList, TabsTrigger } from '../ui/tabs'
-import { BookMarked, Search, Star } from 'lucide-react'
+import { BookMarked, Star } from 'lucide-react'
 import { Badge } from '../ui/badge'
-import { Input } from '../ui/input'
 
 export default function TabsMenu(): JSX.Element {
   return (
@@ -42,11 +41,6 @@ export default function TabsMenu(): JSX.Element {
           </Badge>
         </TabsTrigger>
       </TabsList>
-
-      <div className='flex items-center'>
-        <Search />
-        <Input />
-      </div>
     </Tabs>
   )
 }
