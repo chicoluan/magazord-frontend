@@ -23,8 +23,10 @@ export default function ProfileLayout(): JSX.Element {
   }
 
   return (
-    <div className='grid grid-cols-4 md:grid-cols-6 lg:flex lg:w-full gap-6 px-6 flex-1 pt-10'>
-      <ProfileInfo user={user} />
+    <div className='grid grid-cols-4 md:grid-cols-6 lg:flex lg:w-full gap-6 px-6 pt-10'>
+      <div className='col-span-4 md:col-span-2 lg:w-1/4 '>
+        <ProfileInfo user={user} />
+      </div>
       <div className='col-span-4 md:col-span-2 lg:w-3/4'>
         <ProfileMenu />
         <Outlet context={{ username }} />

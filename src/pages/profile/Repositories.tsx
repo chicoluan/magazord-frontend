@@ -5,16 +5,13 @@ import { Loader2 } from 'lucide-react'
 import EmptyState from '@/components/empty-state'
 import RepositoriesList from '@/components/repositories/RepositoriesList'
 
-type ProfilePageContext = {
-  username: string
-}
-
-export default function ProfilePage(): JSX.Element {
-  const { username } = useOutletContext<ProfilePageContext>()
+export default function RepositoriesPage(): JSX.Element {
+  const { username } = useOutletContext<{ username: string }>()
   const { data: repositories, isLoading, isError } = useRepositories(username)
 
   console.log(repositories)
 
+  // IMPROVE THIS LOADER
   if (isLoading) {
     return <Loader2 />
   }
