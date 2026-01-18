@@ -1,5 +1,5 @@
 import { api } from '@/api/github'
-import type { User } from '@/types/user'
+import type { User } from '@/types/User'
 import { useQuery, type UseQueryResult } from '@tanstack/react-query'
 
 const userKeys = {
@@ -10,7 +10,7 @@ const fetchUser = async (username: string) => {
   return api.get<User>(`users/${username}`).then((res) => res.data)
 }
 
-const useUsername = (username: string): UseQueryResult<User | null, Error> => {
+const useUser = (username: string): UseQueryResult<User | null, Error> => {
   return useQuery({
     queryKey: userKeys.getUser(username),
     queryFn: () => fetchUser(username),
@@ -18,4 +18,4 @@ const useUsername = (username: string): UseQueryResult<User | null, Error> => {
   })
 }
 
-export { useUsername }
+export { useUser }

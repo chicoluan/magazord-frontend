@@ -25,6 +25,7 @@ export default function HomePage(): JSX.Element {
       </div>
 
       <SearchInput
+        placeholder='Search username'
         onChange={(e) => setInputUsername(e.target.value)}
         value={inputUsername}
         onSeach={handleSearch}

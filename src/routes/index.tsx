@@ -10,11 +10,11 @@ export const router = createBrowserRouter([
     element: <RootLayout />,
     children: [
       {
-        path: '/',
+        index: true,
         element: <HomePage />,
       },
       {
-        path: '/profile',
+        path: 'profile',
         element: <ProfileLayout />,
         children: [
           {
@@ -22,11 +22,11 @@ export const router = createBrowserRouter([
             element: <Navigate to='repositories' replace />,
           },
           {
-            path: '/repositories',
+            path: 'repositories',
             element: <ProfilePage />,
           },
           {
-            path: '/starred',
+            path: 'starred',
             element: <ProfilePage />,
           },
         ],
