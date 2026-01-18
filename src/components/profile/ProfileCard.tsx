@@ -2,10 +2,10 @@ import type { JSX } from 'react'
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar'
 import { Badge } from '../ui/badge'
 import { Card, CardContent, CardFooter, CardHeader } from '../ui/card'
-import CardUserAdditionalData from './CardUserAdditionalData'
+import ProfileAdditionalData from './ProfileAdditionalData'
 import { Skeleton } from '../ui/skeleton'
 
-type CardUserProps = {
+type ProfileCardProps = {
   avatar_url?: string
   name?: string | null
   bio?: string | null
@@ -14,14 +14,14 @@ type CardUserProps = {
   blog?: string | null
 }
 
-export default function CardUser({
+export default function ProfileCard({
   avatar_url,
   name,
   bio,
   company,
   location,
   blog,
-}: CardUserProps): JSX.Element {
+}: ProfileCardProps): JSX.Element {
   return (
     <Card className='border-none shadow-none w-3xs gap-4 py-0'>
       <CardHeader className='flex flex-col justify-center items-center'>
@@ -44,7 +44,7 @@ export default function CardUser({
       </CardContent>
 
       <CardFooter className='flex justify-center'>
-        <CardUserAdditionalData
+        <ProfileAdditionalData
           company={company}
           location={location}
           blog={blog}

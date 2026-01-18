@@ -8,6 +8,7 @@ import {
   DrawerTrigger,
 } from '../ui/drawer'
 import { ChevronDown } from 'lucide-react'
+import { Checkbox } from '../ui/checkbox'
 
 type FilterProps = {
   title: string
@@ -25,6 +26,10 @@ export default function Filter({ title }: FilterProps): JSX.Element {
           <DrawerTitle>{title}</DrawerTitle>
           <DrawerClose />
         </DrawerHeader>
+
+        <div className='flex flex-col'>
+          <Checkbox />
+        </div>
       </DrawerContent>
     </Drawer>
   )

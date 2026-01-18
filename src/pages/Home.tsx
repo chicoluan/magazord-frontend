@@ -21,6 +21,7 @@ export default function HomePage(): JSX.Element {
         <Brand className='h-10 w-auto' />
       </div>
 
+      {/* Search Username */}
       <SearchInput
         placeholder='Search username'
         onChange={(e) => setInputUsername(e.target.value)}
