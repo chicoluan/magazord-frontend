@@ -1,5 +1,5 @@
 import { api } from '@/api/github'
-import type { User } from '@/types/User'
+import type { User } from '@/types/Users'
 import { useQuery, type UseQueryResult } from '@tanstack/react-query'
 
 const userKeys = {

@@ -1,7 +1,7 @@
 import type { JSX } from 'react'
 import ProfileCard from './ProfileCard'
 import NavMenu from '../nav-menu/NavMenu'
-import type { User } from '@/types/User'
+import type { User } from '@/types/Users'
 import Filter from '../filter/Filter'
 import SearchInput from '../search-input/SearchInput'
 
