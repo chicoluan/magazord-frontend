@@ -1,6 +1,6 @@
 import type { JSX } from 'react'
-import { Github } from './ui/icons'
-import { Brand } from './ui/brand'
+import { Github } from '../ui/icons'
+import { Brand } from '../ui/brand'
 
 export default function NavBar(): JSX.Element {
   return (
