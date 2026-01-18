@@ -14,7 +14,7 @@ const fetchStarred = async (username: string) => {
 
 const useStarred = (
   username: string,
-): UseQueryResult<Repository[] | Error, null> => {
+): UseQueryResult<Repository[] | undefined, Error> => {
   return useQuery({
     queryKey: starredKeys.getStarred(username),
     queryFn: () => fetchStarred(username),

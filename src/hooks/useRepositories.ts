@@ -14,7 +14,7 @@ const fetchRepositories = async (username: string) => {
 
 const useRepositories = (
   username: string,
-): UseQueryResult<Repository[] | Error, undefined> => {
+): UseQueryResult<Repository[] | undefined, Error> => {
   return useQuery({
     queryKey: repositoriesKeys.getRepositories(username),
     queryFn: () => fetchRepositories(username),

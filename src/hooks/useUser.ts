@@ -10,7 +10,7 @@ const fetchUser = async (username: string) => {
   return api.get<User>(`users/${username}`).then((res) => res.data)
 }
 
-const useUser = (username: string): UseQueryResult<User | null, Error> => {
+const useUser = (username: string): UseQueryResult<User | undefined, Error> => {
   return useQuery({
     queryKey: userKeys.getUser(username),
     queryFn: () => fetchUser(username),

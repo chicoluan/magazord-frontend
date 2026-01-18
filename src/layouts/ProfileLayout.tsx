@@ -18,12 +18,12 @@ export default function ProfileLayout(): JSX.Element {
   }
 
   if (isError || !user) {
-    return <Navigate to='' />
+    return <Navigate to='/' />
   }
 
   return (
     <div className='grid grid-cols-4 md:grid-cols-6 lg:flex lg:w-full gap-6 px-6 flex-1'>
-      <div className='col-span-4 md:col-span-6 lg:flex w-full justify-center pt-10'>
+      <div className='col-span-4 md:col-span-6 flex flex-col w-full justify-center pt-10'>
         <ProfileHeader user={user} />
         <Outlet context={{ username }} />
       </div>
