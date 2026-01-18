@@ -1,19 +1,16 @@
 import { Brand } from '@/components/ui/brand'
 import { Github } from '@/components/ui/icons'
 import { useState, type JSX } from 'react'
-import { useUserStore } from '@/store/useUserStore'
 import { useNavigate } from 'react-router'
 import SearchInput from '@/components/search-input/SearchInput'
 
 export default function HomePage(): JSX.Element {
   const navigate = useNavigate()
   const [inputUsername, setInputUsername] = useState('')
-  const setUsername = useUserStore((state) => state.setUsername)
 
   const handleSearch = () => {
-    if (!inputUsername) return
-    setUsername(inputUsername)
-    navigate('/profile/repositories')
+    if (!inputUsername.trim()) return
+    navigate(`/${inputUsername}/repositories`)
   }
 
   return (

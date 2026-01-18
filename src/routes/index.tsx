@@ -1,7 +1,8 @@
 import ProfileLayout from '@/layouts/ProfileLayout'
 import RootLayout from '@/layouts/RootLayout'
-import HomePage from '@/pages/HomePage'
-import ProfilePage from '@/pages/ProfilePage'
+import HomePage from '@/pages/Home'
+import ProfilePage from '@/pages/profile/Repositories'
+import StarredPage from '@/pages/profile/Starred'
 import { createBrowserRouter, Navigate } from 'react-router'
 
 export const router = createBrowserRouter([
@@ -14,7 +15,7 @@ export const router = createBrowserRouter([
         element: <HomePage />,
       },
       {
-        path: 'profile',
+        path: ':username',
         element: <ProfileLayout />,
         children: [
           {
@@ -27,7 +28,7 @@ export const router = createBrowserRouter([
           },
           {
             path: 'starred',
-            element: <ProfilePage />,
+            element: <StarredPage />,
           },
         ],
       },

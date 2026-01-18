@@ -1,11 +1,5 @@
-import { create } from 'zustand'
+// import { create } from 'zustand'
 
-type UserStore = {
-  username: string
-  setUsername: (username: string) => void
-}
+// type Store = {}
 
-export const useUserStore = create<UserStore>((set) => ({
-  username: '',
-  setUsername: (username) => set({ username }),
-}))
+// export const useUserStore = create<Store>((set) => ({}))
