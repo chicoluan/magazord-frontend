@@ -7,38 +7,28 @@ import {
   EmptyMedia,
   EmptyTitle,
 } from './ui/empty'
-import { ArrowUpRightIcon, FolderCode } from 'lucide-react'
+import { ArrowLeft } from 'lucide-react'
 import { Button } from './ui/button'
 
 export default function EmptyState(): JSX.Element {
   return (
     <Empty>
       <EmptyHeader>
-        <EmptyMedia variant='icon'>
-          <FolderCode />
+        <EmptyMedia className='text-4xl' variant='icon'>
+          😕
         </EmptyMedia>
-        <EmptyTitle>No Repository Yet</EmptyTitle>
+        <EmptyTitle>No Repository</EmptyTitle>
         <EmptyDescription>
-          You haven&apos;t created any projects yet. Get started by creating
-          your first project.
+          This profile does not have any repository yet.
         </EmptyDescription>
       </EmptyHeader>
       <EmptyContent>
-        <div className='flex gap-2'>
-          <Button>Create Project</Button>
-          <Button variant='outline'>Import Project</Button>
+        <div className='flex flex-col'>
+          <Button variant='ghost'>
+            <ArrowLeft /> Back
+          </Button>
         </div>
       </EmptyContent>
-      <Button
-        variant='link'
-        asChild
-        className='text-muted-foreground'
-        size='sm'
-      >
-        <a href='#'>
-          Learn More <ArrowUpRightIcon />
-        </a>
-      </Button>
     </Empty>
   )
 }
