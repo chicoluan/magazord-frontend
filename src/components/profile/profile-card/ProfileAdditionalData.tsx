@@ -4,8 +4,8 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from '../ui/accordion'
-import { Instagram, Organization } from '../ui/icons'
+} from '../../ui/accordion'
+import { Instagram, Organization } from '../../ui/icons'
 import { Link, MapPin } from 'lucide-react'
 
 type ProfileAdditionalDataProps = {

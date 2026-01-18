@@ -1,9 +1,9 @@
 import type { JSX } from 'react'
-import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar'
-import { Badge } from '../ui/badge'
-import { Card, CardContent, CardFooter, CardHeader } from '../ui/card'
+import { Avatar, AvatarFallback, AvatarImage } from '../../ui/avatar'
+import { Badge } from '../../ui/badge'
+import { Card, CardContent, CardFooter, CardHeader } from '../../ui/card'
 import ProfileAdditionalData from './ProfileAdditionalData'
-import { Skeleton } from '../ui/skeleton'
+import { Skeleton } from '../../ui/skeleton'
 
 type ProfileCardProps = {
   avatar_url?: string
