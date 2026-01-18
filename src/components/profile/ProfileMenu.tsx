@@ -1,7 +1,8 @@
 import NavMenu from '../nav-menu/NavMenu'
 import { Search } from 'lucide-react'
 import type { JSX } from 'react'
-import FilterDrawer from '../filter/FilterDrawer'
+import TypeFilter from '../filter/TypeFilter'
+import LanguageFilter from '../filter/LanguageFilter'
 
 export default function ProfileMenu(): JSX.Element {
   return (
@@ -9,18 +10,8 @@ export default function ProfileMenu(): JSX.Element {
       <NavMenu />
       <div className='flex items-center w-full justify-between'>
         <div className='flex items-center gap-2'>
-          <FilterDrawer
-            options={[]}
-            optionsSelected={[]}
-            onToogle={() => {}}
-            title='Type'
-          />
-          <FilterDrawer
-            options={[]}
-            optionsSelected={[]}
-            onToogle={() => {}}
-            title='Language'
-          />
+          <TypeFilter />
+          <LanguageFilter />
         </div>
         <Search />
       </div>

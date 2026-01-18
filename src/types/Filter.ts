@@ -1,8 +1,9 @@
-export type FilterLanguage = 'Java' | 'Typescript' | 'HTML' | 'CSS'
+export type FilterLanguage = 'All' | 'Java' | 'Typescript' | 'HTML' | 'CSS'
 
-export type FilterType = 'Sources' | 'Forks' | 'Archived' | 'Mirrors'
+export type FilterType = 'All' | 'Sources' | 'Forks' | 'Archived' | 'Mirrors'
 
-export type FilterOption = {
+// This extends make the type generic
+export type FilterOption<T extends string> = {
   label: string
-  value: string
+  value: T
 }
