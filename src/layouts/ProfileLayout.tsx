@@ -1,0 +1,32 @@
+import ProfileHeader from '@/components/profile/ProfileHeader'
+import { useUser } from '@/hooks/useUser'
+import { Loader2 } from 'lucide-react'
+import type { JSX } from 'react'
+import { Navigate, Outlet, useParams } from 'react-router'
+
+export default function ProfileLayout(): JSX.Element {
+  const { username } = useParams<{ username: string }>()
+  const { data: user, isLoading, isError } = useUser(username ?? '')
+
+  if (!username) {
+    return <Navigate to='/' replace />
+  }
+
+  // REPLACE FOR SKELETON LOADER
+  if (isLoading) {
+    return <Loader2 />
+  }
+
+  if (isError || !user) {
+    return <Navigate to='/' />
+  }
+
+  return (
+    <div className='grid grid-cols-4 md:grid-cols-6 lg:flex lg:w-full gap-6 px-6 flex-1'>
+      <div className='col-span-4 md:col-span-6 flex flex-col w-full justify-center pt-10'>
+        <ProfileHeader user={user} />
+        <Outlet context={{ username }} />
+      </div>
+    </div>
+  )
+}
