@@ -19,11 +19,11 @@ export default function FilterOptions<T extends string>({
       {options.map((option) => (
         <div className='flex items-center gap-4' key={option.label}>
           <Checkbox
-            className='border-primary size-5'
+            className='border-primary size-4'
             checked={optionsSelected.includes(option.value)}
             onCheckedChange={() => onToogle(option.value)}
           />
-          <Label className='text-lg font-light'>{option.label}</Label>
+          <Label className='text-sm font-light'>{option.label}</Label>
         </div>
       ))}
     </div>

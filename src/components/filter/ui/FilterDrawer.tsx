@@ -1,7 +1,6 @@
 import type { JSX } from 'react'
 import { ChevronDown, X } from 'lucide-react'
 import type { FilterOption } from '@/types/Filter'
-import FilterOptions from './FilterOptions'
 import {
   Drawer,
   DrawerClose,
@@ -10,6 +9,8 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from '../../ui/drawer'
+import { Button } from '@/components/ui/button'
+import FilterOptions from './FilterOptions'
 
 type FilterProps<T extends string> = {
   title: string
@@ -26,9 +27,11 @@ export default function FilterDrawer<T extends string>({
 }: FilterProps<T>): JSX.Element {
   return (
     <Drawer>
-      <DrawerTrigger className='flex items-center gap-2.5 p-2 pe-6 bg-blue-600 text-white rounded-4xl'>
-        <ChevronDown />
-        <p className='text-sm'>{title}</p>
+      <DrawerTrigger asChild>
+        <Button className='flex items-center gap-2.5 p-2 pe-6 bg-blue-600 text-white rounded-4xl'>
+          <ChevronDown />
+          <p className='text-sm'>{title}</p>
+        </Button>
       </DrawerTrigger>
       <DrawerContent className='min-h-svh p-6 gap-6 pt-0'>
         {/* title and close button */}
