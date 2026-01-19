@@ -1,10 +1,12 @@
 import { LANGUAGES_OPTIONS, type TYPE_OPTIONS } from '@/constants/filterOptions'
 
-export type FilterLanguage = (typeof LANGUAGES_OPTIONS)[number]
-
-export type FilterType = (typeof TYPE_OPTIONS)[number]
+export type Filter = 'languages' | 'type'
 
 export type FilterOption<T extends string> = {
   label: string
   value: T
 }
+
+export type FilterOptionsLanguages = (typeof LANGUAGES_OPTIONS)[number]
+
+export type FilterOptionsTypes = (typeof TYPE_OPTIONS)[number]

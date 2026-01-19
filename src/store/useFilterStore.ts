@@ -1,11 +1,11 @@
 import { create } from 'zustand'
-import type { FilterLanguage, FilterType } from '@/types/Filter'
+import type { FilterOptionsLanguages, FilterOptionsTypes } from '@/types/Filter'
 
 export type FilterStore = {
-  languages: FilterLanguage[]
-  types: FilterType[]
-  toggleLanguage: (language: FilterLanguage) => void
-  toggleType: (type: FilterType) => void
+  languages: FilterOptionsLanguages[]
+  types: FilterOptionsTypes[]
+  toggleLanguage: (language: FilterOptionsLanguages) => void
+  toggleType: (type: FilterOptionsTypes) => void
 }
 
 export const useFilterStore = create<FilterStore>((set) => ({

@@ -1,4 +1,4 @@
-import ProfileLayout from '@/layouts/ProfileLayout'
+import ProfileLayout from '@/layouts/profile/ProfileLayout'
 import RootLayout from '@/layouts/RootLayout'
 import HomePage from '@/pages/Home'
 import RepositoriesPage from '@/pages/profile/Repositories'
