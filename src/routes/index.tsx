@@ -1,7 +1,7 @@
 import ProfileLayout from '@/layouts/ProfileLayout'
 import RootLayout from '@/layouts/RootLayout'
 import HomePage from '@/pages/Home'
-import ProfilePage from '@/pages/profile/Repositories'
+import RepositoriesPage from '@/pages/profile/Repositories'
 import StarredPage from '@/pages/profile/Starred'
 import { createBrowserRouter, Navigate } from 'react-router'
 
@@ -24,7 +24,7 @@ export const router = createBrowserRouter([
           },
           {
             path: 'repositories',
-            element: <ProfilePage />,
+            element: <RepositoriesPage />,
           },
           {
             path: 'starred',

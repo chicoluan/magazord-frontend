@@ -3,17 +3,15 @@ import { useRepositories } from '@/hooks/useRepositories'
 import { useOutletContext } from 'react-router'
 import { Loader2 } from 'lucide-react'
 import EmptyState from '@/components/empty-state'
+import RepositoriesList from '@/components/repositories/RepositoriesList'
 
-type ProfilePageContext = {
-  username: string
-}
-
-export default function ProfilePage(): JSX.Element {
-  const { username } = useOutletContext<ProfilePageContext>()
+export default function RepositoriesPage(): JSX.Element {
+  const { username } = useOutletContext<{ username: string }>()
   const { data: repositories, isLoading, isError } = useRepositories(username)
 
   console.log(repositories)
 
+  // IMPROVE THIS LOADER
   if (isLoading) {
     return <Loader2 />
   }
@@ -21,16 +19,6 @@ export default function ProfilePage(): JSX.Element {
   if (isError || !repositories?.length) {
     return <EmptyState />
   }
-  // create a list of repos -- DO NOT FORGET
 
-  return (
-    <div className='flex items-center flex-col'>
-      {repositories?.map((repository) => (
-        <div key={repository.id}>
-          <p>{repository.full_name}</p>
-          <p>{repository.description}</p>
-        </div>
-      ))}
-    </div>
-  )
+  return <RepositoriesList repositories={repositories} />
 }

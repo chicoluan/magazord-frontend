@@ -1,4 +1,5 @@
-import ProfileHeader from '@/components/profile/ProfileHeader'
+import ProfileInfo from '@/components/profile/ProfileInfo'
+import ProfileMenu from '@/components/profile/ProfileMenu'
 import { useUser } from '@/hooks/useUser'
 import { Loader2 } from 'lucide-react'
 import type { JSX } from 'react'
@@ -22,9 +23,12 @@ export default function ProfileLayout(): JSX.Element {
   }
 
   return (
-    <div className='grid grid-cols-4 md:grid-cols-6 lg:flex lg:w-full gap-6 px-6 flex-1'>
-      <div className='col-span-4 md:col-span-6 flex flex-col w-full justify-center pt-10'>
-        <ProfileHeader user={user} />
+    <div className='grid grid-cols-4 md:grid-cols-6 lg:flex lg:w-full gap-6 px-6 pt-10'>
+      <div className='col-span-4 md:col-span-2 lg:w-1/4 '>
+        <ProfileInfo user={user} />
+      </div>
+      <div className='col-span-4 md:col-span-2 lg:w-3/4'>
+        <ProfileMenu />
         <Outlet context={{ username }} />
       </div>
     </div>
