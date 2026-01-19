@@ -1,19 +1,19 @@
 import type { JSX } from 'react'
 import { useOutletContext } from 'react-router'
 import { Loader2 } from 'lucide-react'
-import EmptyState from '@/components/empty-state'
+import EmptyState from '@/components/states/empty-state'
 import RepositoriesList from '@/components/repositories/RepositoriesList'
 import { useFilterStore } from '@/store/useFilterStore'
 import { useFilteredRepositories } from '@/hooks/useFilteredRepositories'
 
 export default function RepositoriesPage(): JSX.Element {
   const { username } = useOutletContext<{ username: string }>()
-  const { languages, types } = useFilterStore()
+  const { languages, types, search } = useFilterStore()
   const {
     data: repositories,
     isLoading,
     isError,
-  } = useFilteredRepositories(username, languages, types)
+  } = useFilteredRepositories(username, languages, types, search)
 
   // console.log(repositories)
 

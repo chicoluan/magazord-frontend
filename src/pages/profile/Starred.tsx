@@ -1,4 +1,4 @@
-import EmptyState from '@/components/empty-state'
+import EmptyState from '@/components/states/empty-state'
 import RepositoriesList from '@/components/repositories/RepositoriesList'
 import { useStarred } from '@/hooks/useStarred'
 import { Loader2 } from 'lucide-react'
