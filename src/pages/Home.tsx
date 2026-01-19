@@ -2,7 +2,7 @@ import { Brand } from '@/components/ui/brand'
 import { Github } from '@/components/ui/icons'
 import { useState, type JSX } from 'react'
 import { useNavigate } from 'react-router'
-import SearchInput from '@/components/search-input/SearchInput'
+import SearchUserInput from '@/components/inputs/SearchUserInput'
 
 export default function HomePage(): JSX.Element {
   const navigate = useNavigate()
@@ -22,7 +22,8 @@ export default function HomePage(): JSX.Element {
       </div>
 
       {/* Search Username */}
-      <SearchInput
+      <SearchUserInput
+        className='border-primary'
         placeholder='Search username'
         onChange={(e) => setInputUsername(e.target.value)}
         value={inputUsername}

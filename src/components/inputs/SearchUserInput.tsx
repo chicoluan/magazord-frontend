@@ -7,14 +7,14 @@ import {
 } from '../ui/input-group'
 import { SearchIcon } from 'lucide-react'
 
-type SearchInputProps = InputHTMLAttributes<HTMLInputElement> & {
+type SearchUserInputProps = InputHTMLAttributes<HTMLInputElement> & {
   onSeach: () => void
 }
 
-export default function SearchInput({
+export default function SearchUserInput({
   onSeach,
   ...props
-}: SearchInputProps): JSX.Element {
+}: SearchUserInputProps): JSX.Element {
   return (
     <InputGroup
       className='max-w-sm border-primary'

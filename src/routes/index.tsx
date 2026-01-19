@@ -1,5 +1,5 @@
-import ProfileLayout from '@/layouts/ProfileLayout'
-import RootLayout from '@/layouts/RootLayout'
+import ProfileLayout from '@/layouts/profile/layout'
+import RootLayout from '@/layouts/layout'
 import HomePage from '@/pages/Home'
 import RepositoriesPage from '@/pages/profile/Repositories'
 import StarredPage from '@/pages/profile/Starred'

@@ -18,7 +18,7 @@ export default function RepositoriesListItem({
 }: RepositoriesListItemProps): JSX.Element {
   return (
     <Item asChild>
-      <a href='/' className='py-8'>
+      <a href='/' className='py-8 px-0'>
         <ItemContent>
           <ItemTitle>{repository.full_name}</ItemTitle>
           <ItemDescription>{repository.description}</ItemDescription>
@@ -26,12 +26,12 @@ export default function RepositoriesListItem({
         <ItemFooter className='flex items-center justify-start gap-8'>
           <div className='flex items-center gap-2'>
             <Star className='size-4' />
-            <p>1.569</p>
+            <p>{repository.stargazers_count}</p>
           </div>
 
           <div className='flex items-center gap-2'>
             <GitBranch className='size-4' />
-            <p>1.569</p>
+            <p>{repository.forks_count}</p>
           </div>
         </ItemFooter>
       </a>
