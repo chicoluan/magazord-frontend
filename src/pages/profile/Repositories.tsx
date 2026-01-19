@@ -1,13 +1,19 @@
 import type { JSX } from 'react'
-import { useRepositories } from '@/hooks/useRepositories'
 import { useOutletContext } from 'react-router'
 import { Loader2 } from 'lucide-react'
 import EmptyState from '@/components/empty-state'
 import RepositoriesList from '@/components/repositories/RepositoriesList'
+import { useFilterStore } from '@/store/useFilterStore'
+import { useFilteredRepositories } from '@/hooks/useFilteredRepositories'
 
 export default function RepositoriesPage(): JSX.Element {
   const { username } = useOutletContext<{ username: string }>()
-  const { data: repositories, isLoading, isError } = useRepositories(username)
+  const { languages, types } = useFilterStore()
+  const {
+    data: repositories,
+    isLoading,
+    isError,
+  } = useFilteredRepositories(username, languages, types)
 
   console.log(repositories)
 
@@ -20,5 +26,9 @@ export default function RepositoriesPage(): JSX.Element {
     return <EmptyState />
   }
 
-  return <RepositoriesList repositories={repositories} />
+  return (
+    <div className='flex w-full'>
+      <RepositoriesList repositories={repositories} />
+    </div>
+  )
 }

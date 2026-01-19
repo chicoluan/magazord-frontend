@@ -8,7 +8,7 @@ type ProfileInfoProps = {
 
 export default function ProfileInfo({ user }: ProfileInfoProps): JSX.Element {
   return (
-    <div className='flex justify-center'>
+    <div className='flex justify-center items-start'>
       <ProfileCard
         avatar_url={user?.avatar_url}
         name={user?.name}

@@ -8,4 +8,7 @@ export type User = {
   company: string | null
   location: string | null
   blog: string | null
+  public_repos: number
+  total_private_repos: number
+  owned_private_repos: number
 }

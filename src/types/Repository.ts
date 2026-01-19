@@ -4,4 +4,6 @@ export type Repository = {
   full_name: string
   description: string | null
   private: boolean
+  stargazers_count: number
+  forks_count: number
 }

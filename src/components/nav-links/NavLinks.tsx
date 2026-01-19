@@ -8,7 +8,7 @@ export default function NavLinks(): JSX.Element {
 
   const baseStyle = 'flex items-center justify-center gap-2 ps-2 py-2'
   return (
-    <nav className='flex items-center gap-11'>
+    <nav className='flex items-center gap-11 w-full'>
       <NavLink
         to={`/${username}/repositories`}
         className={({ isActive }) =>
