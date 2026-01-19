@@ -26,5 +26,9 @@ export default function RepositoriesPage(): JSX.Element {
     return <EmptyState />
   }
 
-  return <RepositoriesList repositories={repositories} />
+  return (
+    <div className='flex w-full'>
+      <RepositoriesList repositories={repositories} />
+    </div>
+  )
 }

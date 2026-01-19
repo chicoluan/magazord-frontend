@@ -8,6 +8,12 @@ type FilterRepositoriesProps = {
   types: FilterOptionsTypes[]
 }
 
+type RepositoriesFilterResponse = {
+  total_count: number
+  items: Repository[]
+  incomplete_results: number
+}
+
 export async function filterRepositories({
   username,
   languages,
@@ -34,8 +40,8 @@ export async function filterRepositories({
   const q = initialQueryParams.join(' ')
 
   const repositories = await api
-    .get<Repository[]>(`search/repositories`, { params: { q } })
+    .get<RepositoriesFilterResponse>(`search/repositories`, { params: { q } })
     .then((res) => res.data)
 
-  return repositories
+  return repositories.items
 }

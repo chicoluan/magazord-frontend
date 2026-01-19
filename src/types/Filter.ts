@@ -8,5 +8,4 @@ export type FilterOption<T extends string> = {
 }
 
 export type FilterOptionsLanguages = (typeof LANGUAGES_OPTIONS)[number]
-
 export type FilterOptionsTypes = (typeof TYPE_OPTIONS)[number]
