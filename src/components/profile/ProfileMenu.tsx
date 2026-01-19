@@ -1,5 +1,4 @@
 import NavLinks from '../nav-links/NavLinks'
-import { Search } from 'lucide-react'
 import type { JSX } from 'react'
 import TypeFilter from '../filter/TypeFilter'
 import LanguageFilter from '../filter/LanguageFilter'
@@ -15,7 +14,6 @@ export default function ProfileMenu(): JSX.Element {
           <LanguageFilter />
         </div>
         <SearchInput onSeach={() => {}} />
-        {/* <Search className='size-5 text-blue-500' /> */}
       </div>
     </div>
   )
