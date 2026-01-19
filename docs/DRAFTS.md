@@ -49,3 +49,14 @@
 ## ERRORS
 
 1. Installed the wrong dependency, instead of vite installed @tanstack/vue-query, my mistake. I saw only the "V" and pick that one. Only saw when started to create the hook to fetch the userData. (FIXED)
+
+## IMPORTANT
+
+The options of filter are not an object because of the complexity related to this challenge, it was not necessary, using readonly T generic type to fix this complexity and show as captalized classname value but it can be used as if has any different label from the filter value.
+
+```
+export type FilterOption<T extends string> = {
+  label: string
+  value: T
+}
+```

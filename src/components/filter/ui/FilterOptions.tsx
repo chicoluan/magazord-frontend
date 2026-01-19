@@ -1,10 +1,9 @@
 import { Checkbox } from '@/components/ui/checkbox'
 import { Label } from '@/components/ui/label'
-import type { FilterOption } from '@/types/Filter'
 import type { JSX } from 'react'
 
 type FilterOptionsProps<T extends string> = {
-  options: FilterOption<T>[]
+  options: readonly T[]
   optionsSelected: T[]
   onToogle: (value: T) => void
 }
@@ -14,16 +13,38 @@ export default function FilterOptions<T extends string>({
   optionsSelected,
   onToogle,
 }: FilterOptionsProps<T>): JSX.Element {
+  const allChecked =
+    options.length > 0 && optionsSelected.length === options.length
+
+  const optionsToToggle = allChecked
+    ? options
+    : options.filter((option) => !optionsSelected.includes(option))
+
+  const toogleCheckedAll = () => {
+    optionsToToggle.forEach(onToogle)
+  }
+
   return (
     <div className='flex flex-col gap-2'>
+      {/* All checkbox separated because it just manage local state */}
+      <div className='flex items-center gap-4'>
+        <Checkbox
+          className='border-primary size-4'
+          checked={allChecked}
+          onCheckedChange={toogleCheckedAll}
+        />
+        <Label className='text-sm font-light capitalize'>all</Label>
+      </div>
+
+      {/* Other options */}
       {options.map((option) => (
-        <div className='flex items-center gap-4' key={option.label}>
+        <div className='flex items-center gap-4' key={option}>
           <Checkbox
             className='border-primary size-4'
-            checked={optionsSelected.includes(option.value)}
-            onCheckedChange={() => onToogle(option.value)}
+            checked={optionsSelected.includes(option)}
+            onCheckedChange={() => onToogle(option)}
           />
-          <Label className='text-sm font-light'>{option.label}</Label>
+          <Label className='text-sm font-light capitalize'>{option}</Label>
         </div>
       ))}
     </div>

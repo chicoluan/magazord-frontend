@@ -7,11 +7,10 @@ import {
 import { ChevronDown } from 'lucide-react'
 import type { JSX } from 'react'
 import FilterOptions from './FilterOptions'
-import type { FilterOption } from '@/types/Filter'
 
 type FilterDropdownProps<T extends string> = {
   title: string
-  options: FilterOption<T>[]
+  options: readonly T[]
   optionsSelected: T[]
   onToogle: (value: T) => void
 }

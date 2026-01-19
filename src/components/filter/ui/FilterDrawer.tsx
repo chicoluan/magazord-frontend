@@ -1,6 +1,5 @@
 import type { JSX } from 'react'
 import { ChevronDown, X } from 'lucide-react'
-import type { FilterOption } from '@/types/Filter'
 import {
   Drawer,
   DrawerClose,
@@ -14,7 +13,7 @@ import FilterOptions from './FilterOptions'
 
 type FilterProps<T extends string> = {
   title: string
-  options: FilterOption<T>[]
+  options: readonly T[]
   optionsSelected: T[]
   onToogle: (value: T) => void
 }
