@@ -6,9 +6,9 @@ import {
   EmptyHeader,
   EmptyMedia,
   EmptyTitle,
-} from './ui/empty'
+} from '../ui/empty'
 import { ArrowLeft } from 'lucide-react'
-import { Button } from './ui/button'
+import { Button } from '../ui/button'
 
 export default function EmptyState(): JSX.Element {
   return (

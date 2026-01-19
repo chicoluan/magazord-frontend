@@ -1,9 +1,9 @@
 import ProfileInfo from '@/components/profile/ProfileInfo'
 import ProfileMenu from '@/components/profile/ProfileMenu'
 import { useUser } from '@/hooks/useUser'
+import { Loader2 } from 'lucide-react'
 import type { JSX } from 'react'
 import { Navigate, Outlet, useParams } from 'react-router'
-import ProfileSkeleton from './ProfileSkeleton'
 
 export default function ProfileLayout(): JSX.Element {
   const { username } = useParams<{ username: string }>()
@@ -15,7 +15,7 @@ export default function ProfileLayout(): JSX.Element {
 
   // REPLACE FOR SKELETON LOADER
   if (isLoading) {
-    return <ProfileSkeleton />
+    return <Loader2 />
   }
 
   if (isError || !user) {
