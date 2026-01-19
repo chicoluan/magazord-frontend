@@ -3,7 +3,7 @@ import type { JSX } from 'react'
 import { NavLink, useParams } from 'react-router'
 import { Badge } from '../ui/badge'
 
-export default function NavMenu(): JSX.Element {
+export default function NavLinks(): JSX.Element {
   const { username } = useParams<{ username: string }>()
 
   const baseStyle = 'flex items-center justify-center gap-2 ps-2 py-2'
