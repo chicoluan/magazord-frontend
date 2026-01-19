@@ -15,7 +15,7 @@ export default function RepositoriesPage(): JSX.Element {
     isError,
   } = useFilteredRepositories(username, languages, types, search)
 
-  console.log(repositories)
+  // console.log(repositories)
 
   // IMPROVE THIS LOADER
   if (isLoading) {
