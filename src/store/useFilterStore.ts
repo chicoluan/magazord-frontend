@@ -6,11 +6,16 @@ export type FilterStore = {
   types: FilterOptionsTypes[]
   toggleLanguage: (language: FilterOptionsLanguages) => void
   toggleType: (type: FilterOptionsTypes) => void
+  search: string
+  setSearch: (search: string) => void
 }
 
 export const useFilterStore = create<FilterStore>((set) => ({
   languages: [],
   types: [],
+  search: '',
+
+  setSearch: (search) => set({ search }),
 
   toggleLanguage: (language) =>
     set((state) => {

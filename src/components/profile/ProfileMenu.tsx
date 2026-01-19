@@ -1,11 +1,14 @@
-import NavLinks from '../nav-links/NavLinks'
-import { Search } from 'lucide-react'
-import type { JSX } from 'react'
+import NavLinks from '../nav/NavLinks'
+// import { Search } from 'lucide-react'
+import { useState, type JSX } from 'react'
 import TypeFilter from '../filter/TypeFilter'
 import LanguageFilter from '../filter/LanguageFilter'
-import SearchInput from '../search-input/SearchInput'
+import { useFilterStore } from '@/store/useFilterStore'
+import SearchRepositoryInput from '../inputs/SearchRepoInput'
 
 export default function ProfileMenu(): JSX.Element {
+  const [value, setValue] = useState('')
+  const { setSearch } = useFilterStore()
   return (
     <div className='flex flex-col w-full items-center justify-center md:items-start gap-6'>
       <NavLinks />
@@ -14,8 +17,11 @@ export default function ProfileMenu(): JSX.Element {
           <TypeFilter />
           <LanguageFilter />
         </div>
-        <SearchInput onSeach={() => {}} />
-        {/* <Search className='size-5 text-blue-500' /> */}
+        <SearchRepositoryInput
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+          onSeach={setSearch}
+        />
       </div>
     </div>
   )

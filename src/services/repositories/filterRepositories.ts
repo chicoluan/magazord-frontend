@@ -3,9 +3,9 @@ import type { FilterOptionsLanguages, FilterOptionsTypes } from '@/types/Filter'
 import type { Repository } from '@/types/Repository'
 
 type FilterRepositoriesProps = {
-  username: string
   languages: FilterOptionsLanguages[]
   types: FilterOptionsTypes[]
+  search: string
 }
 
 type RepositoriesFilterResponse = {
@@ -14,27 +14,28 @@ type RepositoriesFilterResponse = {
   incomplete_results: number
 }
 
-export async function filterRepositories({
-  username,
-  languages,
-  types,
-}: FilterRepositoriesProps): Promise<Repository[]> {
+export async function filterRepositories(
+  username: string,
+  filters: FilterRepositoriesProps,
+): Promise<Repository[]> {
+  const { search, languages, types } = filters
+
   const initialQueryParams: string[] = [`user:${username}`]
 
+  // Filter by Search
+  if (search) initialQueryParams.push(search)
+
+  // Filter by Language
   languages.forEach((language) =>
     initialQueryParams.push(`language:${language}`),
   )
 
+  // Filter by Type
   types.forEach((type) => {
-    if (type === 'forks') {
-      initialQueryParams.push('fork:true')
-    }
-    if (type === 'sources') {
-      initialQueryParams.push('fork:false')
-    }
-    if (type === 'archived') {
-      initialQueryParams.push('archived:true')
-    }
+    if (type === 'forks') initialQueryParams.push('fork:true')
+    if (type === 'sources') initialQueryParams.push('fork:false')
+    if (type === 'archived') initialQueryParams.push('archived:true')
+    if (type === 'mirrors') initialQueryParams.push('mirror:true')
   })
 
   const q = initialQueryParams.join(' ')
