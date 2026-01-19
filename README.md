@@ -29,6 +29,21 @@ The goal is to clearly communicate:
 
 ---
 
+How to Run the Project Locally
+
+To run the project on your machine:
+
+```
+npm install
+npm run dev
+```
+
+The application will be available locally after the development server starts.
+
+The application was also deployed on vercel [Here](https://magazord-frontend.vercel.app/)
+
+---
+
 ## Project Structure & Workflow
 
 ### Branching Strategy
@@ -170,6 +185,22 @@ Different approaches were evaluated for navigation after username submission:
   - Fixed immediately
 
 This reinforced the importance of carefully validating dependencies, especially in multi-framework ecosystems.
+
+---
+
+## API Collection
+
+API Collection
+
+A GitHub API collection is available inside the docs directory.
+
+This collection can be used to:
+
+Inspect the endpoints used in the project
+
+Understand request parameters and query construction
+
+Test the GitHub API outside the **application**
 
 ---
 
