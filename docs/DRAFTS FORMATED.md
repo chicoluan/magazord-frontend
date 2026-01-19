@@ -1,99 +1,213 @@
-## Purpose of This Document
+# GitHub Profile Explorer
 
-This document started as a **personal checklist** to help me keep track of important tasks and avoid forgetting things.
-
-Over time, it evolved:
-
-- At first, it was meant to be just quick notes.
-- After a few commits, I realized it could work as a **draft for the official project documentation**.
-- From now on, it will be updated periodically, not after every single commit.
+A frontend application built to explore GitHub user profiles, repositories, and starred projects using the GitHub REST API. This project was developed as part of a technical challenge, with a strong focus on **architecture decisions**, **state management**, and **scalability**.
 
 ---
 
-## Project Setup & Initial Progress
+## Purpose
 
-### Repository & Branching
+This document started as a **personal checklist** to track development progress. As the project matured, it evolved into a **structured and professional README**, suitable for technical review by recruiters and engineers.
 
-- Initial commit with default README
-- Create `develop` branch
-- Push project to `develop`
-- Set `develop` as the default branch
-- Create `feature/project-setup` branch
+The goal is to clearly communicate:
 
-### Project Configuration
-
-- Clean the project structure
-- Install Tailwind CSS and shadcn/ui dependencies
-- Open Pull Request and merge into `develop`
+- How the project was built
+- Why certain technical decisions were made
+- The current state of the implementation
+- Remaining improvements
 
 ---
 
-## GitHub API Feature Development
+## Tech Stack
 
-### Initial Setup
-
-- Create `feature/github-api` branch
-- Create and test API instance using Axios
-- Start defining routes
-- Rename CSS file to follow a more idiomatic structure
-- Create initial `User` type
-
-### Profile & UI
-
-- Start building the profile page
-- Create profile-related components
-- Authenticate API requests to check if social accounts are included
-- Create reusable `SearchInput` component
-- Create profile layout
-- Add UI components: Drawer, Label, DropdownMenu, ButtonGroup
-
-### Navigation & State Decisions
-
-- Implement username validation and redirect to profile page
-- Navigation options considered:
-  - `Link` → does not submit on **Enter**
-  - `Form` → does not integrate well with Zustand state
-  - `useNavigation` → **best option** when combined with Zustand
-- Use `useNavigation` as the final solution
-- Separate providers into a dedicated directory for scalability
-
-### Routing
-
-- Evaluate dynamic routes
-- Switch from static routes to dynamic routes for better scalability and data management
+- **React + TypeScript**
+- **Vite**
+- **Zustand** – global state (filters, shared UI state)
+- **@tanstack/react-query** – server state and caching
+- **Axios** – API client
+- **Tailwind CSS** – styling
+- **shadcn/ui** – reusable UI components
 
 ---
 
-## Missing Tasks & Quick Reminders
+How to Run the Project Locally
 
-> Short reminders of things that still need attention
+To run the project on your machine:
 
-- Add `/social_accounts` endpoint to fetch user social accounts
-- Animate NavLink underline and fix blink issue
-- Make accordion chevron-down icon blue as well
-- Validate additional user data before rendering
-- Display social accounts in the “additional data” component
-- Fix typo in `SearchInput` component
-- On HomePage, use global state directly instead of local input state
-- Remove unused components
-- Add Postman collection
-- Refactor page files (possibly rename to `page.tsx`)
+```
+npm install
+npm run dev
+```
+
+The application will be available locally after the development server starts.
+
+The application was also deployed on vercel [Here](https://magazord-frontend.vercel.app/)
 
 ---
 
-## Workflow Roadmap
+## Project Structure & Workflow
+
+### Branching Strategy
+
+- `develop` as the default branch
+- Feature-based branches for isolated development
+
+Example:
+
+- `feature/project-setup`
+- `feature/github-api`
+
+This approach ensures clean pull requests and easier code review.
+
+---
+
+## Core Features
+
+### User Flow
 
 1. User enters a GitHub username on the homepage
-2. Username is stored using Zustand
+2. Username is validated
 3. User is redirected to the profile page
-4. Profile page fetches data using React Query and Zustand state
+4. Profile data is fetched via React Query
+5. Filters are managed globally using Zustand
+
+---
+
+### Profile Page
+
+- User basic information
+- Additional data (conditionally rendered)
+- Social accounts (planned improvement)
+
+---
+
+### Repositories
+
+- List of user repositories
+- List of starred repositories
+- Pagination
+- Filters:
+  - Language
+  - Repository type
+
+- Filters are applied **via query parameters**, not local filtering
+
+---
+
+## GitHub API Integration
+
+### Search & Filtering Strategy
+
+Repositories are fetched using the GitHub Search API:
+
+- **Endpoint:** `GET /search/repositories`
+- **Query construction example:**
+
+```
+q=user:USERNAME+language:LANGUAGE
+```
+
+This approach ensures:
+
+- Better performance
+- Accurate filtering
+- API-aligned behavior
+
+---
+
+### Filter Type Design
+
+Filter options are implemented using a generic, readonly-friendly type to keep flexibility while avoiding unnecessary complexity:
+
+```ts
+export type FilterOption<T extends string> = {
+  label: string
+  value: T
+}
+```
+
+This allows the UI to display user-friendly labels while keeping strict control over filter values.
+
+---
+
+## Routing Decisions
+
+- Initially started with static routes
+- Migrated to **dynamic routes** for better scalability and data management
+- Username is no longer required in global state
+- Zustand is now focused on **filters and UI-related state**
+
+---
+
+## State Management Decisions
+
+- **Zustand**: filters, shared UI state
+- **React Query**: server state, caching, refetching
+
+### Navigation Choice
+
+Different approaches were evaluated for navigation after username submission:
+
+- `Link` → does not submit on **Enter**
+- `Form` → poor integration with global state
+- `useNavigation` → **chosen solution**, clean and predictable with Zustand
+
+---
+
+## UI & UX Improvements
+
+- Fixed layout overflow issues
+- Sticky navbar and profile card
+- Responsive filter drawer
+- Pagination adjustments
+- Mirrored filters across views
+
+---
+
+## Known Issues & Improvements
+
+### Pending Tasks
+
+- Add `/social_accounts` endpoint integration
+- Display social accounts in profile additional data
+- Update global state to reflect item counts in navigation
+- Improve filter behavior on resize
+- Animate NavLink underline without blink
+- Remove unused components
+- Add Postman collection
+- Refactor page file naming (e.g. `page.tsx`)
 
 ---
 
 ## Errors & Lessons Learned
 
-1. Installed the wrong dependency:
-   - Installed `@tanstack/vue-query` instead of the React version.
-   - Mistake happened because I only noticed the “V” in the package name.
-   - Discovered the issue when starting to implement the data-fetching hook.
-   - **Status:** Fixed ✅
+- Installed `@tanstack/vue-query` instead of the React version
+  - Mistake identified during hook implementation
+  - Fixed immediately
+
+This reinforced the importance of carefully validating dependencies, especially in multi-framework ecosystems.
+
+---
+
+## API Collection
+
+API Collection
+
+A GitHub API collection is available inside the docs directory.
+
+This collection can be used to:
+
+Inspect the endpoints used in the project
+
+Understand request parameters and query construction
+
+Test the GitHub API outside the **application**
+
+---
+
+## Final Notes
+
+This project prioritizes **clarity**, **maintainability**, and **real-world architectural decisions** over unnecessary abstractions.
+
+It reflects how I approach frontend challenges in production environments: analyzing trade-offs, validating assumptions, and iterating with scalability in mind.
+
+Feel free to explore the codebase and reach out with any questions.

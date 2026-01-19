@@ -1,10 +1,9 @@
-import NavLinks from '../nav/NavLinks'
-// import { Search } from 'lucide-react'
 import { useState, type JSX } from 'react'
 import TypeFilter from '../filter/TypeFilter'
 import LanguageFilter from '../filter/LanguageFilter'
 import { useFilterStore } from '@/store/useFilterStore'
 import SearchRepositoryInput from '../inputs/SearchRepoInput'
+import NavLinks from '../nav/NavLinks'
 
 export default function ProfileMenu(): JSX.Element {
   const [value, setValue] = useState('')
