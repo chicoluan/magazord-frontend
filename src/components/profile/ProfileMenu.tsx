@@ -1,9 +1,9 @@
-import NavLinks from '../nav-links/NavLinks'
-import type { JSX } from 'react'
+import { useState, type JSX } from 'react'
 import TypeFilter from '../filter/TypeFilter'
 import LanguageFilter from '../filter/LanguageFilter'
 import { useFilterStore } from '@/store/useFilterStore'
 import SearchRepositoryInput from '../inputs/SearchRepoInput'
+import NavLinks from '../nav/NavLinks'
 
 export default function ProfileMenu(): JSX.Element {
   const [value, setValue] = useState('')
