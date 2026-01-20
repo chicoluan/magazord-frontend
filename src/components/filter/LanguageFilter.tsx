@@ -1,6 +1,6 @@
 import type { JSX } from 'react'
-import { useFilterStore } from '@/store/useFilterStore'
 import { LANGUAGES_OPTIONS } from '@/constants/filterOptions'
+import { useFilterStore } from '@/store/useFilterStore'
 import FilterDrawer from './FilterDrawer'
 import FilterDropdown from './FilterDropdown'
 

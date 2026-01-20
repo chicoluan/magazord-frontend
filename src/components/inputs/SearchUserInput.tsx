@@ -1,3 +1,4 @@
+import { SearchIcon } from 'lucide-react'
 import type { InputHTMLAttributes, JSX } from 'react'
 import {
   InputGroup,
@@ -5,7 +6,6 @@ import {
   InputGroupButton,
   InputGroupInput,
 } from '../ui/input-group'
-import { SearchIcon } from 'lucide-react'
 
 type SearchUserInputProps = InputHTMLAttributes<HTMLInputElement> & {
   onSeach: () => void

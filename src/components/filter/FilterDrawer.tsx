@@ -27,16 +27,16 @@ export default function FilterDrawer<T extends string>({
   return (
     <Drawer>
       <DrawerTrigger asChild>
-        <Button className='flex items-center gap-2.5 p-2 pe-6 bg-blue-600 text-white rounded-4xl'>
+        <Button className='flex items-center gap-2.5 rounded-4xl bg-blue-600 p-2 pe-6 text-white'>
           <ChevronDown />
           <p className='text-sm'>{title}</p>
         </Button>
       </DrawerTrigger>
 
-      <DrawerContent className='min-h-svh p-6 gap-6 pt-0'>
+      <DrawerContent className='min-h-svh gap-6 p-6 pt-0'>
         {/* title and close button */}
         <DrawerHeader className='flex flex-row items-center justify-between px-0'>
-          <DrawerTitle className='text-xl font-semibold'>{title}</DrawerTitle>
+          <DrawerTitle className='font-semibold text-xl'>{title}</DrawerTitle>
           <DrawerClose>
             <X className='h-6 w-6 text-destructive' />
           </DrawerClose>

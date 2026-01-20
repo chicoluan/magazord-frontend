@@ -15,14 +15,14 @@ export default function ProfileCard({
   socialAccounts,
 }: ProfileCardProps): JSX.Element {
   return (
-    <Card className='border-none shadow-none w-3xs gap-4 py-0'>
-      <CardHeader className='flex flex-col justify-center items-center'>
+    <Card className='w-3xs gap-4 border-none py-0 shadow-none'>
+      <CardHeader className='flex flex-col items-center justify-center'>
         <ProfileImage imageUrl={user?.avatar_url} />
       </CardHeader>
 
-      <CardContent className='flex flex-col text-center gap-1'>
-        <p className='text-xl font-bold'>{user?.name}</p>
-        <p className='text-sm text-muted-foreground'>{user?.bio}</p>
+      <CardContent className='flex flex-col gap-1 text-center'>
+        <p className='font-bold text-xl'>{user?.name}</p>
+        <p className='text-muted-foreground text-sm'>{user?.bio}</p>
       </CardContent>
 
       <CardFooter className='flex justify-center'>
