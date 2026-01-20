@@ -1,21 +1,33 @@
 import ProfileInfo from '@/components/profile/ProfileInfo'
 import ProfileMenu from '@/components/profile/ProfileMenu'
+import LoadingState from '@/components/states/loading/LoadingState'
+import { useSocialAccounts } from '@/hooks/useSocialAccounts'
 import { useUser } from '@/hooks/useUser'
-import { Loader2 } from 'lucide-react'
 import type { JSX } from 'react'
 import { Navigate, Outlet, useParams } from 'react-router'
 
 export default function ProfileLayout(): JSX.Element {
   const { username } = useParams<{ username: string }>()
-  const { data: user, isLoading, isError } = useUser(username ?? '')
+  const {
+    data: user,
+    isLoading: isLoadingUser,
+    isError: isErrorUser,
+  } = useUser(username ?? '')
+  const {
+    data: socialAccounts,
+    isLoading: isLoadingSocialAccounts,
+    isError: isErrorSocialAccounts,
+  } = useSocialAccounts(username ?? '')
+
+  const isError = isErrorUser || isErrorSocialAccounts
+  const isLoading = isLoadingUser || isLoadingSocialAccounts
 
   if (!username) {
     return <Navigate to='/' replace />
   }
 
-  // REPLACE FOR SKELETON LOADER
   if (isLoading) {
-    return <Loader2 />
+    return <LoadingState />
   }
 
   if (isError || !user) {
@@ -26,7 +38,7 @@ export default function ProfileLayout(): JSX.Element {
     <div className='flex-1 w-full flex'>
       <div className='flex flex-col md:flex-row w-full gap-6 px-6 pt-10'>
         <div className='lg:w-1/4'>
-          <ProfileInfo user={user} />
+          <ProfileInfo user={user} socialAccounts={socialAccounts} />
         </div>
 
         <div className='w-full lg:w-3/4'>

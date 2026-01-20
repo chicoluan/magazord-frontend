@@ -1,0 +1,31 @@
+---
+name: Deploy Project
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+    paths:
+      - ./**
+  workflow_dispatch:
+
+jobs:
+  release:
+    name: Deployment
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Vercel Deploy
+        uses: amondnet/vercel-action@v25
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          vercel-args: ${{ github.ref == 'refs/head/main' && '--prod' || '' }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}

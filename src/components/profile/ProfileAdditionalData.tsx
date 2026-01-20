@@ -4,21 +4,28 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from '../../ui/accordion'
-import { Instagram, Organization } from '../../ui/icons'
+} from '../ui/accordion'
+import { Organization } from '../ui/icons'
 import { Link, MapPin } from 'lucide-react'
+import type { SocialAccount } from '@/types/SocialAccount'
+import DynamicIcon from '@/components/ui/dynamicIcon'
+import { formatSocialAccounts } from '@/utils/formatSocialAccounts'
 
 type ProfileAdditionalDataProps = {
   company?: string | null
   location?: string | null
   blog?: string | null
+  socialAccounts?: SocialAccount[]
 }
 
 export default function ProfileAdditionalData({
   company,
   location,
   blog,
+  socialAccounts,
 }: ProfileAdditionalDataProps): JSX.Element {
+  const formattedSocialAccounts = formatSocialAccounts(socialAccounts ?? [])
+
   return (
     <Accordion type='single' collapsible className='w-full text-blue-500'>
       <AccordionItem value='additionalData'>
@@ -27,29 +34,45 @@ export default function ProfileAdditionalData({
         </AccordionTrigger>
 
         <AccordionContent>
-          <div className='flex flex-col'>
+          <div className='flex flex-col gap-2'>
+            {/* Company */}
             {company && (
               <div className='flex gap-2.5 items-center'>
                 <Organization className='size-4' />
                 <p>{company}</p>
               </div>
             )}
+
+            {/* Location */}
             {location && (
               <div className='flex gap-2.5 items-center'>
                 <MapPin className='size-4' />
                 <p>{location}</p>
               </div>
             )}
+
+            {/* Portfólio */}
             {blog && (
-              <div className='flex gap-2.5 items-center'>
+              <a
+                href={blog}
+                target='_blank'
+                className='flex gap-2.5 items-center'
+              >
                 <Link className='size-4' />
                 <p>{blog}</p>
-              </div>
+              </a>
             )}
-            <div className='flex gap-2.5 items-center'>
-              <Instagram className='size-4 stroke-primary' />
-              <p>Gabriel.s.cordeiro</p>
-            </div>
+
+            {formattedSocialAccounts?.map((socialAccount) => (
+              <a
+                href={socialAccount.url}
+                target='_blank'
+                className='flex gap-2.5 items-center'
+              >
+                <DynamicIcon className='size-4' icon={socialAccount.icon} />
+                <p>{socialAccount.username}</p>
+              </a>
+            ))}
           </div>
         </AccordionContent>
       </AccordionItem>
