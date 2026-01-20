@@ -1,22 +1,22 @@
-import type { JSX } from "react";
+import type { JSX } from 'react'
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "../ui/accordion";
-import { Organization } from "../ui/icons";
-import { Link, MapPin } from "lucide-react";
-import type { SocialAccount } from "@/types/SocialAccount";
-import DynamicIcon from "@/components/ui/dynamicIcon";
-import { formatSocialAccounts } from "@/utils/formatSocialAccounts";
+} from '../ui/accordion'
+import { Organization } from '../ui/icons'
+import { Link, MapPin } from 'lucide-react'
+import type { SocialAccount } from '@/types/SocialAccount'
+import DynamicIcon from '@/components/ui/dynamicIcon'
+import { formatSocialAccounts } from '@/utils/formatSocialAccounts'
 
 type ProfileAdditionalDataProps = {
-  company?: string | null;
-  location?: string | null;
-  blog?: string | null;
-  socialAccounts?: SocialAccount[];
-};
+  company?: string | null
+  location?: string | null
+  blog?: string | null
+  socialAccounts?: SocialAccount[]
+}
 
 export default function ProfileAdditionalData({
   company,
@@ -24,29 +24,29 @@ export default function ProfileAdditionalData({
   blog,
   socialAccounts,
 }: ProfileAdditionalDataProps): JSX.Element {
-  const formattedSocialAccounts = formatSocialAccounts(socialAccounts ?? []);
+  const formattedSocialAccounts = formatSocialAccounts(socialAccounts ?? [])
 
   return (
-    <Accordion type="single" collapsible className="w-full text-blue-500">
-      <AccordionItem value="additionalData">
-        <AccordionTrigger className="flex-col items-center gap-0.5">
+    <Accordion type='single' collapsible className='w-full text-blue-500'>
+      <AccordionItem value='additionalData'>
+        <AccordionTrigger className='flex-col items-center gap-0.5'>
           Informações Adicionais
         </AccordionTrigger>
 
         <AccordionContent>
-          <div className="flex flex-col gap-2">
+          <div className='flex flex-col gap-2'>
             {/* Company */}
             {company && (
-              <div className="flex gap-2.5 items-center">
-                <Organization className="size-4" />
+              <div className='flex gap-2.5 items-center'>
+                <Organization className='size-4' />
                 <p>{company}</p>
               </div>
             )}
 
             {/* Location */}
             {location && (
-              <div className="flex gap-2.5 items-center">
-                <MapPin className="size-4" />
+              <div className='flex gap-2.5 items-center'>
+                <MapPin className='size-4' />
                 <p>{location}</p>
               </div>
             )}
@@ -55,10 +55,10 @@ export default function ProfileAdditionalData({
             {blog && (
               <a
                 href={blog}
-                target="_blank"
-                className="flex gap-2.5 items-center"
+                target='_blank'
+                className='flex gap-2.5 items-center'
               >
-                <Link className="size-4" />
+                <Link className='size-4' />
                 <p>{blog}</p>
               </a>
             )}
@@ -66,11 +66,11 @@ export default function ProfileAdditionalData({
             {formattedSocialAccounts?.map((socialAccount) => (
               <a
                 key={socialAccount.provider}
-                target="_blank"
+                target='_blank'
                 href={socialAccount.url}
-                className="flex gap-2.5 items-center"
+                className='flex gap-2.5 items-center'
               >
-                <DynamicIcon className="size-4" icon={socialAccount.icon} />
+                <DynamicIcon className='size-4' icon={socialAccount.icon} />
                 <p>{socialAccount.username}</p>
               </a>
             ))}
@@ -78,5 +78,5 @@ export default function ProfileAdditionalData({
         </AccordionContent>
       </AccordionItem>
     </Accordion>
-  );
+  )
 }

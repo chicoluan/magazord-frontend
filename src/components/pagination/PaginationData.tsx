@@ -1,4 +1,4 @@
-import type { Dispatch, JSX, SetStateAction } from "react";
+import type { Dispatch, JSX, SetStateAction } from 'react'
 import {
   Pagination,
   PaginationContent,
@@ -7,25 +7,25 @@ import {
   // PaginationLink,
   PaginationNext,
   PaginationPrevious,
-} from "../ui/pagination";
+} from '../ui/pagination'
 
 type PaginationDataProps = {
-  page: number;
-  setPage: Dispatch<SetStateAction<number>>;
-  totalPages: number;
-};
+  page: number
+  setPage: Dispatch<SetStateAction<number>>
+  totalPages: number
+}
 
 export default function PaginationData({
   page,
   setPage,
   totalPages,
 }: PaginationDataProps): JSX.Element {
-  const pagesMap = new Map();
-  pagesMap.set("totalPages", totalPages);
+  const pagesMap = new Map()
+  pagesMap.set('totalPages', totalPages)
   return (
     <Pagination>
       <PaginationContent>
-        <PaginationItem className="font-base">
+        <PaginationItem className='font-base'>
           <PaginationPrevious
             onClick={() => setPage((p) => Math.max(p - 1, 1))}
             aria-disabled={page === 1}
@@ -40,5 +40,5 @@ export default function PaginationData({
         </PaginationItem>
       </PaginationContent>
     </Pagination>
-  );
+  )
 }
