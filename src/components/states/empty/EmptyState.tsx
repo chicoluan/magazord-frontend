@@ -5,7 +5,7 @@ import {
   EmptyHeader,
   EmptyMedia,
   EmptyTitle,
-} from '../ui/empty'
+} from '../../ui/empty'
 export default function EmptyState(): JSX.Element {
   return (
     <Empty>

@@ -1,8 +1,8 @@
 import type { JSX } from 'react'
 import { useFilterStore } from '@/store/useFilterStore'
 import { LANGUAGES_OPTIONS } from '@/constants/filterOptions'
-import FilterDropdown from './ui/FilterDropdown'
-import FilterDrawer from './ui/FilterDrawer'
+import FilterDrawer from './FilterDrawer'
+import FilterDropdown from './FilterDropdown'
 
 export default function LanguageFilter(): JSX.Element {
   const { languages, toggleLanguage } = useFilterStore()

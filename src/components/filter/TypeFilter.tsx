@@ -1,8 +1,8 @@
 import type { JSX } from 'react'
-import FilterDrawer from './ui/FilterDrawer'
 import { TYPE_OPTIONS } from '@/constants/filterOptions'
 import { useFilterStore } from '@/store/useFilterStore'
-import FilterDropdown from './ui/FilterDropdown'
+import FilterDropdown from './FilterDropdown'
+import FilterDrawer from './FilterDrawer'
 
 export default function TypeFilter(): JSX.Element {
   const { types, toggleType } = useFilterStore()
