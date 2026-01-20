@@ -22,7 +22,7 @@ export default function RepositoriesPage(): JSX.Element {
   )
 
   if (isLoading) return <LoadingState />
-  if (isError || !data) return <EmptyState />
+  if (isError || !data?.repositories.length) return <EmptyState />
 
   const { repositories, totalCount } = data
 

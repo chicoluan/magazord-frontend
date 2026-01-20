@@ -13,7 +13,7 @@ export default function SearchRepositoryInput({
   ...props
 }: SearchRepositoryInputProps): JSX.Element {
   return (
-    <InputGroup onKeyDown={(e) => e.key === 'Enter' && onSeach(value)}>
+    <InputGroup onKeyDown={(e) => e.key === 'Enter' && onSeach(value)} className='max-w-xs'>
       <InputGroupInput {...props} />
       <InputGroupAddon>
         <Search className='size-5 text-blue-500' />

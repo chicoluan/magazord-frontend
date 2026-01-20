@@ -12,7 +12,7 @@ export default function RepositoriesList({
   repositories,
 }: RepositoriesListProps): JSX.Element {
   return (
-    <ItemGroup className='flex flex-col'>
+    <ItemGroup className='flex flex-col gap-3'>
       {repositories?.map((repository, index) => (
         <Fragment key={repository.id}>
           <RepositoriesListItem repository={repository} />

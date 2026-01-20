@@ -1,42 +1,37 @@
-import type { Dispatch, JSX, SetStateAction } from 'react'
+import type { Dispatch, JSX, SetStateAction } from "react";
 import {
   Pagination,
   PaginationContent,
-  PaginationEllipsis,
+  // PaginationEllipsis,
   PaginationItem,
-  PaginationLink,
+  // PaginationLink,
   PaginationNext,
   PaginationPrevious,
-} from '../ui/pagination'
+} from "../ui/pagination";
 
 type PaginationDataProps = {
-  page: number
-  setPage: Dispatch<SetStateAction<number>>
-  totalPages: number
-}
+  page: number;
+  setPage: Dispatch<SetStateAction<number>>;
+  totalPages: number;
+};
 
 export default function PaginationData({
   page,
   setPage,
   totalPages,
 }: PaginationDataProps): JSX.Element {
+  const pagesMap = new Map();
+  pagesMap.set("totalPages", totalPages);
   return (
     <Pagination>
       <PaginationContent>
-        <PaginationItem>
+        <PaginationItem className="font-base">
           <PaginationPrevious
             onClick={() => setPage((p) => Math.max(p - 1, 1))}
             aria-disabled={page === 1}
           />
         </PaginationItem>
-        <PaginationItem>
-          <PaginationLink isActive>{page}</PaginationLink>
-        </PaginationItem>
-        {totalPages > 3 && (
-          <PaginationItem>
-            <PaginationEllipsis />
-          </PaginationItem>
-        )}
+        {pagesMap}
         <PaginationItem>
           <PaginationNext
             onClick={() => setPage((p) => Math.min(p + 1, totalPages))}
@@ -45,5 +40,5 @@ export default function PaginationData({
         </PaginationItem>
       </PaginationContent>
     </Pagination>
-  )
+  );
 }
