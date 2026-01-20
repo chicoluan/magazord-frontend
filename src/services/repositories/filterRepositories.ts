@@ -6,9 +6,11 @@ type FilterRepositoriesProps = {
   languages: FilterOptionsLanguages[]
   types: FilterOptionsTypes[]
   search: string
+  page: number
+  perPage?: number
 }
 
-type RepositoriesFilterResponse = {
+export type RepositoriesFilterResponse = {
   total_count: number
   items: Repository[]
   incomplete_results: number
@@ -17,8 +19,8 @@ type RepositoriesFilterResponse = {
 export async function filterRepositories(
   username: string,
   filters: FilterRepositoriesProps,
-): Promise<Repository[]> {
-  const { search, languages, types } = filters
+): Promise<RepositoriesFilterResponse> {
+  const { search, languages, types, page, perPage = 3 } = filters
 
   const initialQueryParams: string[] = [`user:${username}`]
 
@@ -41,8 +43,10 @@ export async function filterRepositories(
   const q = initialQueryParams.join(' ')
 
   const repositories = await api
-    .get<RepositoriesFilterResponse>(`search/repositories`, { params: { q } })
+    .get<RepositoriesFilterResponse>(`search/repositories`, {
+      params: { q, page, per_page: perPage },
+    })
     .then((res) => res.data)
 
-  return repositories.items
+  return repositories
 }
