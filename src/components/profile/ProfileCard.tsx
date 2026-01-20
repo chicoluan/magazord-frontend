@@ -1,14 +1,19 @@
 import type { JSX } from 'react'
 import { Card, CardContent, CardFooter, CardHeader } from '../ui/card'
-import ProfileAdditionalData from './ui/ProfileAdditionalData'
+import ProfileAdditionalData from './ProfileAdditionalData'
 import type { User } from '@/types/User'
 import ProfileImage from './ui/ProfileImage'
+import type { SocialAccount } from '@/types/SocialAccount'
 
 type ProfileCardProps = {
   user: User
+  socialAccounts?: SocialAccount[]
 }
 
-export default function ProfileCard({ user }: ProfileCardProps): JSX.Element {
+export default function ProfileCard({
+  user,
+  socialAccounts,
+}: ProfileCardProps): JSX.Element {
   return (
     <Card className='border-none shadow-none w-3xs gap-4 py-0'>
       <CardHeader className='flex flex-col justify-center items-center'>
@@ -25,6 +30,7 @@ export default function ProfileCard({ user }: ProfileCardProps): JSX.Element {
           company={user?.company}
           location={user?.location}
           blog={user?.blog}
+          socialAccounts={socialAccounts}
         />
       </CardFooter>
     </Card>
