@@ -1,10 +1,10 @@
 import type { JSX } from 'react'
 import { useOutletContext } from 'react-router'
-import { Loader2 } from 'lucide-react'
-import EmptyState from '@/components/states/EmptyState'
 import RepositoriesList from '@/components/repositories/RepositoriesList'
 import { useFilterStore } from '@/store/useFilterStore'
 import { useFilteredRepositories } from '@/hooks/useFilteredRepositories'
+import EmptyState from '@/components/states/empty/EmptyState'
+import LoadingState from '@/components/states/loading/LoadingState'
 
 export default function RepositoriesPage(): JSX.Element {
   const { username } = useOutletContext<{ username: string }>()
@@ -15,11 +15,8 @@ export default function RepositoriesPage(): JSX.Element {
     isError,
   } = useFilteredRepositories(username, languages, types, search)
 
-  // console.log(repositories)
-
-  // IMPROVE THIS LOADER
   if (isLoading) {
-    return <Loader2 />
+    return <LoadingState />
   }
 
   if (isError || !repositories?.length) {
