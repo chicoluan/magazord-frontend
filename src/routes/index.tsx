@@ -1,9 +1,9 @@
-import ProfileLayout from '@/layouts/profile/layout'
+import { createBrowserRouter, Navigate } from 'react-router'
 import RootLayout from '@/layouts/layout'
+import ProfileLayout from '@/layouts/profile/layout'
 import HomePage from '@/pages/Home'
 import RepositoriesPage from '@/pages/profile/Repositories'
 import StarredPage from '@/pages/profile/Starred'
-import { createBrowserRouter, Navigate } from 'react-router'
 
 export const router = createBrowserRouter([
   {

@@ -1,7 +1,7 @@
 import type { JSX } from 'react'
-import ProfileCard from './ProfileCard'
-import type { User } from '@/types/User'
 import type { SocialAccount } from '@/types/SocialAccount'
+import type { User } from '@/types/User'
+import ProfileCard from './ProfileCard'
 
 type ProfileInfoProps = {
   user: User

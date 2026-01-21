@@ -1,6 +1,6 @@
+import { type UseQueryResult, useQuery } from '@tanstack/react-query'
 import { api } from '@/api/github'
 import type { Repository } from '@/types/Repository'
-import { useQuery, type UseQueryResult } from '@tanstack/react-query'
 
 const starredKeys = {
   getStarred: (username: string) => ['starred', username] as const,

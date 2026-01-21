@@ -1,9 +1,9 @@
 import type { JSX } from 'react'
+import type { SocialAccount } from '@/types/SocialAccount'
+import type { User } from '@/types/User'
 import { Card, CardContent, CardFooter, CardHeader } from '../ui/card'
 import ProfileAdditionalData from './ProfileAdditionalData'
-import type { User } from '@/types/User'
 import ProfileImage from './ProfileImage'
-import type { SocialAccount } from '@/types/SocialAccount'
 
 type ProfileCardProps = {
   user: User

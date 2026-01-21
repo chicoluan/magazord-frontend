@@ -1,8 +1,8 @@
-import type { Repository } from '@/types/Repository'
 import { Fragment, type JSX } from 'react'
-import RepositoriesListItem from './RepositoriesListItem'
-import { Separator } from '../ui/separator'
+import type { Repository } from '@/types/Repository'
 import { ItemGroup } from '../ui/item'
+import { Separator } from '../ui/separator'
+import RepositoriesListItem from './RepositoriesListItem'
 
 type RepositoriesListProps = {
   repositories: Repository[]

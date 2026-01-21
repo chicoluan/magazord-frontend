@@ -1,7 +1,7 @@
-import { useState, type JSX } from 'react'
-import TypeFilter from '../filter/TypeFilter'
-import LanguageFilter from '../filter/LanguageFilter'
+import { type JSX, useState } from 'react'
 import { useFilterStore } from '@/store/useFilterStore'
+import LanguageFilter from '../filter/LanguageFilter'
+import TypeFilter from '../filter/TypeFilter'
 import SearchRepositoryInput from '../inputs/SearchRepoInput'
 import NavLinks from '../nav/NavLinks'
 

@@ -1,4 +1,8 @@
+import { Link, MapPin } from 'lucide-react'
 import type { JSX } from 'react'
+import DynamicIcon from '@/components/ui/dynamicIcon'
+import type { SocialAccount } from '@/types/SocialAccount'
+import { formatSocialAccounts } from '@/utils/formatSocialAccounts'
 import {
   Accordion,
   AccordionContent,
@@ -6,10 +10,6 @@ import {
   AccordionTrigger,
 } from '../ui/accordion'
 import { Organization } from '../ui/icons'
-import { Link, MapPin } from 'lucide-react'
-import type { SocialAccount } from '@/types/SocialAccount'
-import DynamicIcon from '@/components/ui/dynamicIcon'
-import { formatSocialAccounts } from '@/utils/formatSocialAccounts'
 
 type ProfileAdditionalDataProps = {
   company?: string | null

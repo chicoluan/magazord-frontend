@@ -1,4 +1,4 @@
-import { LANGUAGES_OPTIONS, type TYPE_OPTIONS } from '@/constants/filterOptions'
+import type { LANGUAGES_OPTIONS, TYPE_OPTIONS } from '@/constants/filterOptions'
 
 export type Filter = 'languages' | 'type'
 

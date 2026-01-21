@@ -1,8 +1,8 @@
-import { Brand } from '@/components/ui/brand'
-import { Github } from '@/components/ui/icons'
-import { useState, type JSX } from 'react'
+import { type JSX, useState } from 'react'
 import { useNavigate } from 'react-router'
 import SearchUserInput from '@/components/inputs/SearchUserInput'
+import { Brand } from '@/components/ui/brand'
+import { Github } from '@/components/ui/icons'
 
 export default function HomePage(): JSX.Element {
   const navigate = useNavigate()

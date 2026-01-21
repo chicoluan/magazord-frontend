@@ -1,6 +1,6 @@
+import { GitBranch, Star } from 'lucide-react'
 import type { JSX } from 'react'
 import type { Repository } from '@/types/Repository'
-import { GitBranch, Star } from 'lucide-react'
 import {
   Item,
   ItemContent,

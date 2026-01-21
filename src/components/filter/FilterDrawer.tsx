@@ -1,5 +1,6 @@
-import type { JSX } from 'react'
 import { ChevronDown, X } from 'lucide-react'
+import type { JSX } from 'react'
+import { Button } from '@/components/ui/button'
 import {
   Drawer,
   DrawerClose,
@@ -8,7 +9,6 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from '../ui/drawer'
-import { Button } from '@/components/ui/button'
 import FilterOptions from './FilterOptions'
 
 type FilterProps<T extends string> = {

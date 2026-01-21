@@ -1,11 +1,11 @@
-import { useState, type JSX } from 'react'
+import { type JSX, useState } from 'react'
 import { useOutletContext } from 'react-router'
+import PaginationData from '@/components/pagination/PaginationData'
 import RepositoriesList from '@/components/repositories/RepositoriesList'
-import { useFilterStore } from '@/store/useFilterStore'
-import { useFilteredRepositories } from '@/hooks/useFilteredRepositories'
 import EmptyState from '@/components/states/empty/EmptyState'
 import LoadingState from '@/components/states/loading/LoadingState'
-import PaginationData from '@/components/pagination/PaginationData'
+import { useFilteredRepositories } from '@/hooks/useFilteredRepositories'
+import { useFilterStore } from '@/store/useFilterStore'
 
 const PER_PAGE = 10
 

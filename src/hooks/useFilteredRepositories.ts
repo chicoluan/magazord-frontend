@@ -1,7 +1,7 @@
+import { type UseQueryResult, useQuery } from '@tanstack/react-query'
 import { filterRepositories } from '@/services/repositories/filterRepositories'
 import type { FilterOptionsLanguages, FilterOptionsTypes } from '@/types/Filter'
 import type { Repository } from '@/types/Repository'
-import { useQuery, type UseQueryResult } from '@tanstack/react-query'
 
 type FiltersParams = {
   languages: FilterOptionsLanguages[]
