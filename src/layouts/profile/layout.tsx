@@ -1,10 +1,10 @@
 import type { JSX } from 'react'
-import { Navigate, Outlet, useParams } from 'react-router'
 import ProfileInfo from '@/components/profile/ProfileInfo'
-import ProfileMenu from '@/components/profile/ProfileMenu'
+import ProfileHeader from '@/components/profile/ProfileHeader'
 import LoadingState from '@/components/states/loading/LoadingState'
-import { useSocialAccounts } from '@/hooks/useSocialAccounts'
 import { useUser } from '@/hooks/useUser'
+import { Navigate, Outlet, useParams } from 'react-router'
+import { useSocialAccounts } from '@/hooks/useSocialAccounts'
 
 export default function ProfileLayout(): JSX.Element {
   const { username } = useParams<{ username: string }>()
@@ -35,14 +35,17 @@ export default function ProfileLayout(): JSX.Element {
   }
 
   return (
-    <div className='flex-1 w-full flex'>
-      <div className='flex flex-col md:flex-row w-full gap-6 px-6 pt-10'>
+    <div className='flex w-full flex-1'>
+      <div className='mx-auto flex w-7xl flex-col gap-6 px-6 pt-10 md:flex-row'>
         <div className='lg:w-1/4'>
           <ProfileInfo user={user} socialAccounts={socialAccounts} />
         </div>
 
-        <div className='flex flex-col w-full lg:w-3/4 gap-4'>
-          <ProfileMenu />
+        <div className='flex w-full flex-col gap-4 lg:w-3/4'>
+          <ProfileHeader
+            totalPrivateRepositories={user.total_private_repos}
+            totalPublicRepositories={user.public_repos}
+          />
           <Outlet context={{ username }} />
         </div>
       </div>

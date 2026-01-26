@@ -29,7 +29,7 @@ export default function RepositoriesPage(): JSX.Element {
   const totalPages = Math.ceil(totalCount / PER_PAGE)
 
   return (
-    <div className='flex flex-col w-full'>
+    <div className='flex w-full flex-col'>
       <RepositoriesList repositories={repositories} />
       <PaginationData page={page} setPage={setPage} totalPages={totalPages} />
     </div>

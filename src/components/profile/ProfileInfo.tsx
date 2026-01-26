@@ -13,7 +13,7 @@ export default function ProfileInfo({
   socialAccounts,
 }: ProfileInfoProps): JSX.Element {
   return (
-    <div className='flex justify-center items-start'>
+    <div className='flex items-start justify-center'>
       <ProfileCard user={user} socialAccounts={socialAccounts} />
     </div>
   )

@@ -37,7 +37,7 @@ export default function ProfileAdditionalData({
           <div className='flex flex-col gap-2'>
             {/* Company */}
             {company && (
-              <div className='flex gap-2.5 items-center'>
+              <div className='flex items-center gap-2.5'>
                 <Organization className='size-4' />
                 <p>{company}</p>
               </div>
@@ -45,7 +45,7 @@ export default function ProfileAdditionalData({
 
             {/* Location */}
             {location && (
-              <div className='flex gap-2.5 items-center'>
+              <div className='flex items-center gap-2.5'>
                 <MapPin className='size-4' />
                 <p>{location}</p>
               </div>
@@ -56,7 +56,7 @@ export default function ProfileAdditionalData({
               <a
                 href={blog}
                 target='_blank'
-                className='flex gap-2.5 items-center'
+                className='flex items-center gap-2.5'
               >
                 <Link className='size-4' />
                 <p>{blog}</p>

@@ -20,18 +20,20 @@ export default function RepositoriesListItem({
     <Item asChild>
       <a href='/' className='py-4'>
         <ItemContent>
-          <ItemTitle className='text-lg'>{repository.name}</ItemTitle>
-          <ItemDescription className='text-base'>
+          <ItemTitle className='font-semibold text-lg'>
+            {repository.full_name}
+          </ItemTitle>
+          <ItemDescription className='font-light text-sm'>
             {repository.description}
           </ItemDescription>
         </ItemContent>
-        <ItemFooter className='flex items-center justify-start gap-8'>
-          <div className='flex items-center gap-2'>
-            <Star className='size-4' />
+        <ItemFooter className='flex items-center justify-start gap-2'>
+          <div className='flex items-center gap-0.5'>
+            <Star className='size-4 fill-accent-foreground' />
             <p>{repository.stargazers_count}</p>
           </div>
 
-          <div className='flex items-center gap-2'>
+          <div className='flex items-center gap-0.5'>
             <GitBranch className='size-4' />
             <p>{repository.forks_count}</p>
           </div>

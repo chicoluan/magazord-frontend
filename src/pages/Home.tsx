@@ -14,10 +14,10 @@ export default function HomePage(): JSX.Element {
   }
 
   return (
-    <div className='flex flex-col flex-1 w-full items-center justify-center gap-6'>
+    <div className='flex w-full flex-1 flex-col items-center justify-center gap-6'>
       {/* Github Logo and Brand */}
-      <div className='flex items-center justify-center text-primary gap-3'>
-        <Github className='w-10 h-10' />
+      <div className='flex items-center justify-center gap-3 text-primary'>
+        <Github className='h-10 w-10' />
         <Brand className='h-10 w-auto' />
       </div>
 

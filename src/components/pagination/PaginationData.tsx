@@ -2,9 +2,8 @@ import type { Dispatch, JSX, SetStateAction } from 'react'
 import {
   Pagination,
   PaginationContent,
-  // PaginationEllipsis,
   PaginationItem,
-  // PaginationLink,
+  PaginationLink,
   PaginationNext,
   PaginationPrevious,
 } from '../ui/pagination'
@@ -20,22 +19,33 @@ export default function PaginationData({
   setPage,
   totalPages,
 }: PaginationDataProps): JSX.Element {
-  const pagesMap = new Map()
-  pagesMap.set('totalPages', totalPages)
   return (
     <Pagination>
       <PaginationContent>
-        <PaginationItem className='font-base'>
+        <PaginationItem>
           <PaginationPrevious
-            onClick={() => setPage((p) => Math.max(p - 1, 1))}
+            className='font-light'
             aria-disabled={page === 1}
+            onClick={() => setPage((p) => Math.max(p - 1, 1))}
           />
         </PaginationItem>
-        {pagesMap}
+
+        {Array.from({ length: totalPages }).map((_, index) => {
+          const currentPage = index + 1
+          return (
+            <PaginationItem key={currentPage}>
+              <PaginationLink isActive={index === currentPage} size='icon'>
+                {currentPage}
+              </PaginationLink>
+            </PaginationItem>
+          )
+        })}
+
         <PaginationItem>
           <PaginationNext
-            onClick={() => setPage((p) => Math.min(p + 1, totalPages))}
+            className='font-light'
             aria-disabled={page === totalPages}
+            onClick={() => setPage((p) => Math.min(p + 1, totalPages))}
           />
         </PaginationItem>
       </PaginationContent>
