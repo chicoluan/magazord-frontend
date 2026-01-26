@@ -1,6 +1,6 @@
+import { type UseQueryResult, useQuery } from '@tanstack/react-query'
 import { api } from '@/api/github'
 import type { SocialAccount } from '@/types/SocialAccount'
-import { useQuery, type UseQueryResult } from '@tanstack/react-query'
 
 const socialAccountsKeys = {
   getSocialAccounts: (username: string) =>

@@ -1,5 +1,5 @@
-import * as LucideIcons from 'lucide-react'
 import type { LucideProps } from 'lucide-react'
+import * as LucideIcons from 'lucide-react'
 
 export type LucideIconName = keyof typeof LucideIcons
 

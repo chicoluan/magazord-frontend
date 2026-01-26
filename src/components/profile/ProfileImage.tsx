@@ -1,7 +1,7 @@
+import type { JSX } from 'react'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Badge } from '@/components/ui/badge'
 import { Skeleton } from '@/components/ui/skeleton'
-import type { JSX } from 'react'
 
 type ProfileImageProps = {
   imageUrl: string

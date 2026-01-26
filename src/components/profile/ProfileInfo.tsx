@@ -1,7 +1,7 @@
 import type { JSX } from 'react'
-import ProfileCard from './ProfileCard'
-import type { User } from '@/types/User'
 import type { SocialAccount } from '@/types/SocialAccount'
+import type { User } from '@/types/User'
+import ProfileCard from './ProfileCard'
 
 type ProfileInfoProps = {
   user: User
@@ -13,7 +13,7 @@ export default function ProfileInfo({
   socialAccounts,
 }: ProfileInfoProps): JSX.Element {
   return (
-    <div className='flex justify-center items-start'>
+    <div className='flex items-start justify-center'>
       <ProfileCard user={user} socialAccounts={socialAccounts} />
     </div>
   )

@@ -1,6 +1,6 @@
+import type { JSX } from 'react'
 import { Checkbox } from '@/components/ui/checkbox'
 import { Label } from '@/components/ui/label'
-import type { JSX } from 'react'
 
 type FilterOptionsProps<T extends string> = {
   options: readonly T[]
@@ -29,22 +29,22 @@ export default function FilterOptions<T extends string>({
       {/* All checkbox separated because it just manage local state */}
       <div className='flex items-center gap-4'>
         <Checkbox
-          className='border-primary size-4'
+          className='size-4 border-primary'
           checked={allChecked}
           onCheckedChange={toogleCheckedAll}
         />
-        <Label className='text-sm font-light capitalize'>all</Label>
+        <Label className='font-light text-sm capitalize'>all</Label>
       </div>
 
       {/* Other options */}
       {options.map((option) => (
         <div className='flex items-center gap-4' key={option}>
           <Checkbox
-            className='border-primary size-4'
+            className='size-4 border-primary'
             checked={optionsSelected.includes(option)}
             onCheckedChange={() => onToogle(option)}
           />
-          <Label className='text-sm font-light capitalize'>{option}</Label>
+          <Label className='font-light text-sm capitalize'>{option}</Label>
         </div>
       ))}
     </div>

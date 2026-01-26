@@ -1,5 +1,5 @@
-import NavBar from '@/components/nav/NavBar'
 import { Outlet } from 'react-router'
+import NavBar from '@/components/nav/NavBar'
 
 export default function RootLayout() {
   return (

@@ -1,4 +1,8 @@
+import { Link, MapPin } from 'lucide-react'
 import type { JSX } from 'react'
+import DynamicIcon from '@/components/ui/dynamicIcon'
+import type { SocialAccount } from '@/types/SocialAccount'
+import { formatSocialAccounts } from '@/utils/formatSocialAccounts'
 import {
   Accordion,
   AccordionContent,
@@ -6,10 +10,6 @@ import {
   AccordionTrigger,
 } from '../ui/accordion'
 import { Organization } from '../ui/icons'
-import { Link, MapPin } from 'lucide-react'
-import type { SocialAccount } from '@/types/SocialAccount'
-import DynamicIcon from '@/components/ui/dynamicIcon'
-import { formatSocialAccounts } from '@/utils/formatSocialAccounts'
 
 type ProfileAdditionalDataProps = {
   company?: string | null
@@ -37,7 +37,7 @@ export default function ProfileAdditionalData({
           <div className='flex flex-col gap-2'>
             {/* Company */}
             {company && (
-              <div className='flex gap-2.5 items-center'>
+              <div className='flex items-center gap-2.5'>
                 <Organization className='size-4' />
                 <p>{company}</p>
               </div>
@@ -45,7 +45,7 @@ export default function ProfileAdditionalData({
 
             {/* Location */}
             {location && (
-              <div className='flex gap-2.5 items-center'>
+              <div className='flex items-center gap-2.5'>
                 <MapPin className='size-4' />
                 <p>{location}</p>
               </div>
@@ -56,7 +56,7 @@ export default function ProfileAdditionalData({
               <a
                 href={blog}
                 target='_blank'
-                className='flex gap-2.5 items-center'
+                className='flex items-center gap-2.5'
               >
                 <Link className='size-4' />
                 <p>{blog}</p>
@@ -65,8 +65,9 @@ export default function ProfileAdditionalData({
 
             {formattedSocialAccounts?.map((socialAccount) => (
               <a
-                href={socialAccount.url}
+                key={socialAccount.provider}
                 target='_blank'
+                href={socialAccount.url}
                 className='flex gap-2.5 items-center'
               >
                 <DynamicIcon className='size-4' icon={socialAccount.icon} />

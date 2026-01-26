@@ -1,12 +1,18 @@
+import { type UseQueryResult, useQuery } from '@tanstack/react-query'
 import { filterRepositories } from '@/services/repositories/filterRepositories'
 import type { FilterOptionsLanguages, FilterOptionsTypes } from '@/types/Filter'
 import type { Repository } from '@/types/Repository'
-import { useQuery, type UseQueryResult } from '@tanstack/react-query'
 
 type FiltersParams = {
   languages: FilterOptionsLanguages[]
   types: FilterOptionsTypes[]
   search: string
+  page: number
+}
+
+type ResponseParams = {
+  repositories: Repository[]
+  totalCount: number
 }
 
 const filteredRepositoriesKeys = {
@@ -18,7 +24,11 @@ const fetchFilteredRepositories = async (
   username: string,
   filters: FiltersParams,
 ) => {
-  return await filterRepositories(username, filters)
+  const { items, total_count } = await filterRepositories(username, filters)
+  return {
+    repositories: items,
+    totalCount: total_count,
+  }
 }
 
 const useFilteredRepositories = (
@@ -26,11 +36,13 @@ const useFilteredRepositories = (
   languages: FilterOptionsLanguages[],
   types: FilterOptionsTypes[],
   search: string,
-): UseQueryResult<Repository[] | undefined, Error> => {
+  page: number,
+): UseQueryResult<ResponseParams | undefined, Error> => {
   const filters = {
     languages,
     types,
     search,
+    page,
   }
   return useQuery({
     queryKey: filteredRepositoriesKeys.repositories(username, filters),

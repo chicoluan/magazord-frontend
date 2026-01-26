@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 
-@import 'tailwindcss';
-@import 'tw-animate-css';
+@import "tailwindcss";
+@import "tw-animate-css";
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-roboto: 'Roboto';
+  --font-roboto: "Roboto";
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -137,6 +137,6 @@
   }
 
   .animate-fill {
-    animation: fill 1.5s linear infinite
+    animation: fill 1.5s linear infinite;
   }
 }

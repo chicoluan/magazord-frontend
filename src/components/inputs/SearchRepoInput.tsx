@@ -1,6 +1,6 @@
+import { Search } from 'lucide-react'
 import type { InputHTMLAttributes, JSX } from 'react'
 import { InputGroup, InputGroupAddon, InputGroupInput } from '../ui/input-group'
-import { Search } from 'lucide-react'
 
 type SearchRepositoryInputProps = InputHTMLAttributes<HTMLInputElement> & {
   onSeach: (search: string) => void
@@ -13,7 +13,10 @@ export default function SearchRepositoryInput({
   ...props
 }: SearchRepositoryInputProps): JSX.Element {
   return (
-    <InputGroup onKeyDown={(e) => e.key === 'Enter' && onSeach(value)}>
+    <InputGroup
+      onKeyDown={(e) => e.key === 'Enter' && onSeach(value)}
+      className='max-w-xs'
+    >
       <InputGroupInput {...props} />
       <InputGroupAddon>
         <Search className='size-5 text-blue-500' />
